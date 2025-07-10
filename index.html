@@ -1,112 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FinRef.io – Payment Consulting & Merchant Onboarding</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      --primary: #1a202c;
+      --secondary: #2d3748;
+      --accent: #3182ce;
+      --light-bg: #f7fafc;
+      --text-dark: #2d3748;
     }
+    * { box-sizing: border-box; margin:0; padding:0; }
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: var(--text-dark);
       line-height: 1.6;
-      background-color: #ffffff;
-      color: #333;
+      background: #fff;
     }
-    header, section {
-      padding: 60px 20px;
-    }
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      text-align: center;
-    }
-    h1, h2 {
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 18px;
-      color: #555;
-    }
-    .button {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 30px;
-      background-color: #111;
+    a { color: var(--accent); text-decoration: none; transition: color .3s; }
+    a:hover { color: #225a9e; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+    header {
+      background: linear-gradient(135deg, var(--accent), #63b3ed);
       color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 6px;
+      text-align: center;
+      padding: 80px 20px;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+    header h1 { font-size: 2.5rem; margin-bottom: 20px; }
+    header p { font-size: 1.125rem; margin-bottom: 30px; max-width:600px; margin-left:auto; margin-right:auto; }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: .75rem 1.5rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background .3s;
+    }
+    .btn:hover { background: var(--secondary); }
+    section { padding: 60px 0; }
+    section:nth-of-type(even) { background: var(--light-bg); }
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 20px;
+      color: var(--primary);
+    }
+    .about p {
+      max-width: 800px;
+      margin: 0 auto;
+      color: var(--secondary);
+      font-size: 1rem;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .service-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 20px;
+      flex: 1 1 250px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
       text-align: left;
-      max-width: 600px;
-      margin: 40px auto;
     }
-    li {
-      font-size: 18px;
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
+    .service-card h3 { margin-bottom: 10px; font-size: 1.25rem; }
+    .service-card p { color: var(--secondary); font-size: 1rem; }
+    .contact p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+      text-align: center;
     }
     footer {
-      background-color: #f2f2f2;
-      padding: 30px 20px;
+      background: var(--secondary);
+      color: #fff;
       text-align: center;
-      font-size: 14px;
-      color: #777;
+      padding: 20px;
+      font-size: .875rem;
     }
-    a {
-      color: #111;
-    }
-    a:hover {
-      text-decoration: underline;
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      header p { font-size: 1rem; }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Hero Section -->
-  <header style="background-color: #f8f8f8;">
+  <!-- Hero -->
+  <header>
     <div class="container">
-      <h1>We Simplify Payment Solutions</h1>
-      <p>FinRef connects high-risk and complex businesses with reliable PSPs and EMIs. From onboarding to compliance — we make it simple.</p>
-      <a href="#contact" class="button">Get Started</a>
+      <h1>Payment Consulting & Merchant Onboarding</h1>
+      <p>We help high-risk and complex businesses connect with trusted PSPs and EMIs. Streamline onboarding, ensure compliance, and grow with confidence.</p>
+      <a href="#contact" class="btn">Get Started</a>
     </div>
   </header>
 
-  <!-- About Section -->
+  <!-- About -->
   <section id="about">
-    <div class="container">
+    <div class="container about">
       <h2>About FinRef</h2>
-      <p>FinRef is a consulting partner for businesses in crypto, online education, and regulated industries. We help clients access trusted PSPs, EMIs, and acquirers, while guiding them through onboarding, compliance, and documentation processes.</p>
+      <p>FinRef is a dedicated consulting partner for crypto, online education, and regulated industries. We guide businesses through account opening, compliance, and documentation to ensure seamless payment operations worldwide.</p>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section id="services" style="background-color: #fafafa;">
+  <!-- Services -->
+  <section id="services">
     <div class="container">
       <h2>Our Services</h2>
-      <ul>
-        <li>✔️ Merchant Account Onboarding (Crypto, Edu, E-commerce)</li>
-        <li>✔️ Compliance & Documentation Support</li>
-        <li>✔️ Risk Reports & Red Flag Review</li>
-        <li>✔️ PSP, EMI, Acquirer Introductions</li>
-        <li>✔️ Travel Rule & Ongoing Monitoring Advisory</li>
-      </ul>
+      <div class="services">
+        <div class="service-card">
+          <h3>Merchant Account Onboarding</h3>
+          <p>Fast-track your account setup with top PSPs, EMIs, and acquirers for crypto, education, and e-commerce.</p>
+        </div>
+        <div class="service-card">
+          <h3>Compliance & Documentation</h3>
+          <p>Expert support for KYC/AML, FATF/FATCA guidelines, and regulatory filings.</p>
+        </div>
+        <div class="service-card">
+          <h3>Risk Assessments</h3>
+          <p>In-depth risk reports, red-flag reviews, and Travel Rule advisory to mitigate exposure.</p>
+        </div>
+        <div class="service-card">
+          <h3>Partnership & Referrals</h3>
+          <p>Introductions to PSPs, EMIs, and acquirers, with ongoing monitoring support.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <!-- Contact -->
   <section id="contact">
-    <div class="container">
+    <div class="container contact">
       <h2>Contact Us</h2>
       <p>Email: <a href="mailto:nika@finref.io">nika@finref.io</a></p>
-      <p>LinkedIn (Personal): <a href="https://www.linkedin.com/in/nika-metreveli" target="_blank">linkedin.com/in/nika-metreveli</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/nika-metreveli" target="_blank">linkedin.com/in/nika-metreveli</a></p>
       <p>LinkedIn (Company): <em>Coming soon</em></p>
       <p>Facebook: <em>Coming soon</em></p>
     </div>
