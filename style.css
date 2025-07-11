@@ -1,0 +1,48 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ffffff;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 0;
+}
+
+header {
+    background: #0d1117;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+header .cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.services ul, .why ul {
+    list-style: disc;
+    padding-left: 20px;
+}
+
+footer {
+    background: #f5f5f5;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+}
