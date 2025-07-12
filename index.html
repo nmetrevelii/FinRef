@@ -1,96 +1,176 @@
-<style>
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f9fafc;
-    color: #222;
-    margin: 0;
-    padding: 0;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FinRef - Smart Payment Solutions</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9fafc;
+      color: #222;
+      margin: 0;
+      padding: 0;
+    }
 
-  .top-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 20px;
-    background-color: white;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    box-sizing: border-box;
-  }
-
-  .nav-left {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-
-  .nav-left img {
-    height: 32px;
-    margin-right: 8px;
-  }
-
-  .nav-left span {
-    font-size: 20px;
-    font-weight: 700;
-    color: #0d6efd;
-  }
-
-  .nav-center {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    align-items: center;
-  }
-
-  .nav-center a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    font-size: 16px;
-  }
-
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 14px;
-  }
-
-  .spacer {
-    height: 100px;
-  }
-
-  @media (max-width: 768px) {
     .top-nav {
-      flex-direction: column;
-      align-items: flex-start;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .nav-left img {
+      height: 32px;
+      margin-right: 8px;
+    }
+
+    .nav-left span {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0d6efd;
     }
 
     .nav-center {
-      flex-direction: column;
-      gap: 10px;
-      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .nav-center a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 16px;
     }
 
     .nav-right {
-      justify-content: flex-start;
-      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
     }
 
-    section h1 {
-      font-size: 28px !important;
+    .spacer {
+      height: 100px;
     }
 
-    section p {
-      font-size: 16px !important;
-    }
+    @media (max-width: 768px) {
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-    #solutions div {
-      flex-wrap: wrap !important;
-      justify-content: center !important;
+      .nav-center {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+      }
+
+      .nav-right {
+        justify-content: flex-start;
+        width: 100%;
+      }
+
+      section h1 {
+        font-size: 28px !important;
+      }
+
+      section p {
+        font-size: 16px !important;
+      }
+
+      #solutions div {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+      }
     }
-  }
-</style>
+  </style>
+</head>
+<body>
+  <div class="top-nav">
+    <div class="nav-left">
+      <img alt="FinRef Logo" src="logo.png"/>
+      <span>FinRef</span>
+    </div>
+    <div class="nav-center">
+      <a href="#solutions">Solutions</a>
+      <a href="#">Clients</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About Us</a>
+    </div>
+    <div class="nav-right"></div>
+  </div>
+
+  <div class="spacer"></div>
+
+  <section style="padding: 120px 20px 60px; text-align: center; max-width: 900px; margin: 0 auto;">
+    <h1 style="font-size: 42px; font-weight: 800; margin-bottom: 20px; color: #1a1a1a;">Your Scalable Payment Strategy</h1>
+    <p style="font-size: 18px; color: #444; line-height: 1.6;">
+      We take a personalized, results-driven approach to optimize your payment journey — from account setup to risk mitigation. FinRef turns your financial infrastructure into a growth engine.
+    </p>
+  </section>
+
+  <section class="section" id="solutions" style="padding: 60px 20px; scroll-margin-top: 120px; background-color: #f5f7fa;">
+    <h2 style="text-align: center; font-size: 36px; margin-bottom: 50px; font-weight: 800;">Our Solutions</h2>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 50px; max-width: 1200px; margin: 0 auto;">
+      <div style="width: 160px; text-align: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1171/1171446.png" style="width: 90px; margin-bottom: 15px;"/>
+        <p style="font-weight: 600;">PSP &amp; MID Setup</p>
+      </div>
+      <div style="width: 160px; text-align: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/4022/4022781.png" style="width: 90px; margin-bottom: 15px;"/>
+        <p style="font-weight: 600;">Crypto Onboarding</p>
+      </div>
+      <div style="width: 160px; text-align: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/4359/4359873.png" style="width: 90px; margin-bottom: 15px;"/>
+        <p style="font-weight: 600;">Compliance Support</p>
+      </div>
+      <div style="width: 160px; text-align: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/1466/1466384.png" style="width: 90px; margin-bottom: 15px;"/>
+        <p style="font-weight: 600;">Business Account Opening</p>
+      </div>
+      <div style="width: 160px; text-align: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/3757/3757761.png" style="width: 90px; margin-bottom: 15px;"/>
+        <p style="font-weight: 600;">Referral Partnerships</p>
+      </div>
+      <div style="width: 160px; text-align: center;">
+        <img src="https://cdn-icons-png.flaticon.com/512/3974/3974347.png" style="width: 90px; margin-bottom: 15px;"/>
+        <p style="font-weight: 600;">KYC &amp; Risk Tools</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about" style="padding: 60px 20px; scroll-margin-top: 120px;">
+    <h2 style="text-align: center; font-size: 32px; margin-bottom: 30px;">About FinRef</h2>
+    <p style="text-align: center; max-width: 900px; margin: 0 auto; font-size: 18px; line-height: 1.7;">
+      FinRef is a strategic consultancy focused on empowering fintechs, PSPs, and online businesses to access the right payment infrastructure.
+      We act as your trusted bridge to acquirers, banks, crypto-friendly providers, and risk tools — ensuring every setup is secure, compliant, and tailored to your industry needs.
+      With hands-on experience in high-risk verticals, we understand the regulatory, operational, and reputational demands clients face.
+      From PSP onboarding to crypto KYC frameworks, our advisory is end-to-end.
+    </p>
+  </section>
+
+  <section class="section" id="contact" style="padding: 60px 20px 100px; scroll-margin-top: 120px; text-align: center;">
+    <div style="text-align: center; margin-bottom: 30px;">
+      <img alt="FinRef Logo" src="logo.png" style="width: 100px; opacity: 0.6; margin-bottom: 10px;"/>
+    </div>
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:support@finref.io">support@finref.io</a></p>
+  </section>
+</body>
+</html>
