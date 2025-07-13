@@ -10,7 +10,10 @@
       background: #f9fafc;
       margin: 0;
       padding: 0;
+      color: #222;
     }
+    a { text-decoration: none; color: inherit; }
+
     .top-nav {
       display: flex;
       justify-content: space-between;
@@ -23,6 +26,10 @@
       z-index: 1000;
       box-sizing: border-box;
     }
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
     .nav-left img {
       height: 38px;
       margin-right: 10px;
@@ -31,12 +38,48 @@
       font-size: 22px;
       font-weight: 600;
     }
-    .solutions {
+    .social-icons img {
+      height: 24px;
+      margin-left: 15px;
+    }
+
+    .section {
+      padding: 100px 20px 60px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .hero {
+      text-align: center;
+      padding-top: 150px;
+      padding-bottom: 60px;
+    }
+    .hero h1 {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 18px;
+      color: #555;
+    }
+
+    .about h2, .solutions h2, .contact h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .about p {
+      font-size: 16px;
+      text-align: center;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .solutions-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin-top: 120px;
-      padding: 40px 20px;
+      margin-top: 40px;
     }
     .solution {
       width: 160px;
@@ -52,6 +95,18 @@
       margin-top: 10px;
       font-weight: 500;
     }
+
+    .contact {
+      text-align: center;
+    }
+    .contact p {
+      font-size: 16px;
+    }
+    .contact a {
+      color: #0073e6;
+      font-weight: bold;
+    }
+
     .footer {
       text-align: center;
       padding: 40px 20px;
@@ -59,14 +114,19 @@
       font-size: 14px;
       color: #555;
     }
-    .social-icons img {
-      height: 24px;
-      margin: 0 10px;
-    }
+
     @media (max-width: 768px) {
-      .solutions {
+      .top-nav {
+        padding: 14px 20px;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .solutions-grid {
         flex-direction: column;
         align-items: center;
+      }
+      .hero h1 {
+        font-size: 30px;
       }
     }
   </style>
@@ -84,39 +144,60 @@
     </div>
   </div>
 
-  <div class="solutions">
-    <div class="solution">
-      <img src="business_account_opening.png" alt="Business Account" />
-      <p>Business Accounts</p>
+  <div class="hero section">
+    <h1>Smart Payment Solutions</h1>
+    <p>Helping companies connect with the right PSPs, EMIs, and banking partners.</p>
+  </div>
+
+  <div class="about section" id="about">
+    <h2>About FinRef</h2>
+    <p>
+      FinRef is a boutique consulting and referral agency helping online businesses, fintechs, and high-risk industries find tailored payment and banking solutions. With a network of trusted providers, we connect clients to the right partners for success.
+    </p>
+  </div>
+
+  <div class="solutions section" id="solutions">
+    <h2>Our Solutions</h2>
+    <div class="solutions-grid">
+      <div class="solution">
+        <img src="business_account_opening.png" alt="Business Account" />
+        <p>Business Accounts</p>
+      </div>
+      <div class="solution">
+        <img src="compliance.png" alt="Compliance" />
+        <p>Compliance</p>
+      </div>
+      <div class="solution">
+        <img src="compliance_support.png" alt="Compliance Support" />
+        <p>Compliance Support</p>
+      </div>
+      <div class="solution">
+        <img src="crypto.png" alt="Crypto" />
+        <p>Crypto Friendly</p>
+      </div>
+      <div class="solution">
+        <img src="crypto_onboarding.png" alt="Crypto Onboarding" />
+        <p>Crypto Onboarding</p>
+      </div>
+      <div class="solution">
+        <img src="kyc_tools.png" alt="KYC Tools" />
+        <p>KYC Tools</p>
+      </div>
+      <div class="solution">
+        <img src="psp_mid_setup.png" alt="PSP Setup" />
+        <p>PSP & MID Setup</p>
+      </div>
+      <div class="solution">
+        <img src="referral_partnerships.png" alt="Referrals" />
+        <p>Referral Deals</p>
+      </div>
     </div>
-    <div class="solution">
-      <img src="compliance.png" alt="Compliance" />
-      <p>Compliance</p>
-    </div>
-    <div class="solution">
-      <img src="compliance_support.png" alt="Compliance Support" />
-      <p>Compliance Support</p>
-    </div>
-    <div class="solution">
-      <img src="crypto.png" alt="Crypto" />
-      <p>Crypto Friendly</p>
-    </div>
-    <div class="solution">
-      <img src="crypto_onboarding.png" alt="Crypto Onboarding" />
-      <p>Crypto Onboarding</p>
-    </div>
-    <div class="solution">
-      <img src="kyc_tools.png" alt="KYC Tools" />
-      <p>KYC Tools</p>
-    </div>
-    <div class="solution">
-      <img src="psp_mid_setup.png" alt="PSP Setup" />
-      <p>PSP & MID Setup</p>
-    </div>
-    <div class="solution">
-      <img src="referral_partnerships.png" alt="Referrals" />
-      <p>Referral Deals</p>
-    </div>
+  </div>
+
+  <div class="contact section" id="contact">
+    <h2>Contact Us</h2>
+    <p>For business inquiries or partnerships, email us at:</p>
+    <p><a href="mailto:nika@finref.io">nika@finref.io</a></p>
   </div>
 
   <div class="footer">
