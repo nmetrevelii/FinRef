@@ -1,89 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>FinRef.io</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     * {
       box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
 
     body {
-      background-color: #ffffff;
-      color: #111827;
-      line-height: 1.6;
+      background: #fff;
+      color: #111;
     }
 
     header {
-      background: #1f2937;
-      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 20px;
-      text-align: center;
+      background: #f8f9fa;
+      border-bottom: 1px solid #ddd;
     }
 
-    header h1 {
-      font-size: 2rem;
-    }
-
-    nav {
-      margin-top: 10px;
+    header img {
+      height: 50px;
     }
 
     nav a {
-      color: #ffffff;
-      margin: 0 10px;
+      margin-left: 20px;
       text-decoration: none;
-      font-weight: 500;
+      color: #111;
+      font-weight: bold;
     }
 
-    .section {
+    .container {
       padding: 40px 20px;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
     }
 
-    .section h2 {
-      font-size: 1.8rem;
+    h2 {
       margin-bottom: 10px;
     }
 
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 20px;
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
     }
 
-    .social-icons img {
+    .social {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .social img {
       width: 32px;
       height: 32px;
     }
 
     footer {
-      background: #f3f4f6;
       text-align: center;
       padding: 20px;
-      font-size: 0.9rem;
-      color: #4b5563;
+      background: #f1f1f1;
+      color: #666;
+      font-size: 14px;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5rem;
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .section h2 {
-        font-size: 1.4rem;
+      nav {
+        margin-top: 10px;
       }
 
-      .social-icons img {
-        width: 28px;
-        height: 28px;
+      nav a {
+        margin-left: 0;
+        margin-right: 15px;
       }
     }
   </style>
@@ -91,32 +92,32 @@
 <body>
 
   <header>
-    <h1>FinRef.io</h1>
+    <img src="https://finref.io/logo.png" alt="FinRef Logo" />
     <nav>
       <a href="#about">About</a>
-      <a href="#solutions">Solutions</a>
+      <a href="#solutions">Our Solutions</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <section id="about" class="section">
+  <div class="container" id="about">
     <h2>About FinRef</h2>
-    <p>FinRef connects fintech companies, PSPs, and EMIs through strategic referrals. We help businesses scale faster by introducing them to trusted financial service providers and helping them launch, grow, and optimize their operations.</p>
-  </section>
+    <p>FinRef connects fintech companies, PSPs, and EMIs through strategic referrals and compliance assistance. We provide trusted partners to launch and scale your financial services efficiently.</p>
+  </div>
 
-  <section id="solutions" class="section">
+  <div class="container" id="solutions">
     <h2>Our Solutions</h2>
     <ul>
       <li>PSP and EMI Referrals</li>
       <li>Compliance Support</li>
       <li>Business Account Introductions</li>
     </ul>
-  </section>
+  </div>
 
-  <section id="contact" class="section">
+  <div class="container" id="contact">
     <h2>Contact Us</h2>
     <p>Email: <a href="mailto:nika@finref.io">nika@finref.io</a></p>
-    <div class="social-icons">
+    <div class="social">
       <a href="https://linkedin.com" target="_blank">
         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
       </a>
@@ -127,7 +128,7 @@
         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
       </a>
     </div>
-  </section>
+  </div>
 
   <footer>
     © 2025 FinRef.io — All rights reserved.
