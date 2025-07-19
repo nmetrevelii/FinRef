@@ -65,12 +65,20 @@
         }
 
         .logo img {
-            height: 40px;
+            height: 50px;
+            width: auto;
+            transition: all 0.3s;
+        }
+
+        .logo:hover img {
+            transform: scale(1.05);
+            opacity: 0.9;
         }
 
         .nav-links {
             display: flex;
             gap: 30px;
+            align-items: center;
         }
 
         .nav-links a {
@@ -78,10 +86,42 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
+            padding: 8px 12px;
+            border-radius: 6px;
         }
 
         .nav-links a:hover {
             color: var(--accent);
+            background: rgba(124, 77, 255, 0.1);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-action-btn {
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+
+        .nav-action-btn.primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+        }
+
+        .nav-action-btn.secondary {
+            color: var(--primary);
+            border: 1px solid var(--gray);
+        }
+
+        .nav-action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .mobile-menu-btn {
@@ -427,10 +467,41 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                z-index: 99;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-actions {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 20px;
+            }
+
+            .nav-action-btn {
+                width: 100%;
+                text-align: center;
             }
 
             .mobile-menu-btn {
                 display: block;
+                z-index: 100;
+            }
+
+            .hero {
+                padding: 160px 0 80px;
             }
 
             .hero h1 {
@@ -459,13 +530,16 @@
                 <a href="#" class="logo">
                     <img src="logo.png" alt="FinRef Logo">
                 </a>
-                <div class="nav-links">
+                <div class="nav-links" id="navLinks">
                     <a href="#how-it-works">How It Works</a>
-                    <a href="#partners">For PSPs/EMIs</a>
-                    <a href="#clients">For Clients</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#process">Process</a>
+                    <a href="#about">About</a>
+                    <div class="nav-actions">
+                        <a href="#psp-form" class="nav-action-btn secondary">For PSPs/EMIs</a>
+                        <a href="#client-form" class="nav-action-btn primary">For Clients</a>
+                    </div>
                 </div>
-                <button class="mobile-menu-btn">
+                <button class="mobile-menu-btn" id="menuBtn">
                     <i class="fas fa-bars"></i>
                 </button>
             </nav>
@@ -478,8 +552,8 @@
             <h1>Smart PSP/EMI Matchmaking</h1>
             <p>We connect businesses with the perfect payment service providers and electronic money institutions, handling all the complexity of compliance and onboarding.</p>
             <div class="hero-buttons">
-                <a href="#" class="cta-button" id="client-cta">I Need a PSP/EMI</a>
-                <a href="#" class="cta-button" id="psp-cta">We're a PSP/EMI</a>
+                <a href="#client-form" class="cta-button" id="client-cta">I Need a PSP/EMI</a>
+                <a href="#psp-form" class="cta-button" id="psp-cta">We're a PSP/EMI</a>
             </div>
         </div>
     </section>
@@ -529,7 +603,7 @@
     </section>
 
     <!-- Process Section -->
-    <section class="process">
+    <section class="process" id="process">
         <div class="container">
             <h2 class="section-title">Our Simple Process</h2>
             <p class="section-subtitle">How we create successful matches between businesses and payment providers</p>
@@ -565,8 +639,8 @@
             <h2>Ready to Find Your Perfect Payment Partner?</h2>
             <p>Whether you're a business seeking payment solutions or a provider looking for qualified clients, we'll make the perfect match.</p>
             <div class="cta-buttons">
-                <a href="#" class="cta-button" id="client-cta2">Business Application</a>
-                <a href="#" class="cta-button" id="psp-cta2">Provider Application</a>
+                <a href="#client-form" class="cta-button" id="client-cta2">Business Application</a>
+                <a href="#psp-form" class="cta-button" id="psp-cta2">Provider Application</a>
             </div>
         </div>
     </section>
@@ -580,7 +654,7 @@
                     <p>Specialists in PSP/EMI matchmaking and compliance preparation.</p>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/company/finref/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.facebook.com/finref.io" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/people/FinRef/61578274861592/" target="_blank"><i class="fab fa-facebook"></i></a>
                         <a href="https://www.instagram.com/finref.io/" target="_blank"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
@@ -677,13 +751,19 @@
 
     <script>
         // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('show');
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
         });
-
+        
         // Form toggle functionality
-        const pspButtons = document.querySelectorAll('#psp-cta, #psp-apply, #psp-cta2');
-        const clientButtons = document.querySelectorAll('#client-cta, #client-apply, #client-cta2');
+        const pspButtons = document.querySelectorAll('.nav-action-btn.secondary, #psp-cta, #psp-apply, #psp-cta2');
+        const clientButtons = document.querySelectorAll('.nav-action-btn.primary, #client-cta, #client-apply, #client-cta2');
         const pspForm = document.getElementById('psp-form');
         const clientForm = document.getElementById('client-form');
         const closeButtons = document.querySelectorAll('.close-form');
@@ -722,10 +802,12 @@
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') !== '#') {
+                if (this.getAttribute('href') !== '#' && 
+                    !this.classList.contains('nav-action-btn')) {
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
