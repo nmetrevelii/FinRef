@@ -1,151 +1,735 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FinRef - Smart Payment Solutions</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9fafc;
-      color: #222;
-      margin: 0;
-      padding: 0;
-    }
-    .top-nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 60px;
-      background-color: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      box-sizing: border-box;
-    }
-    .nav-left {
-      display: flex;
-      align-items: center;
-    }
-    .nav-left img {
-      height: 38px;
-      margin-right: 10px;
-    }
-    .nav-left span {
-      font-size: 22px;
-      font-weight: 700;
-      color: #0d6efd;
-    }
-    .nav-center {
-      display: flex;
-      gap: 30px;
-      align-items: center;
-    }
-    .nav-center a {
-      text-decoration: none;
-      color: #333;
-      font-weight: 500;
-      font-size: 16px;
-    }
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-    }
-    .flag-icon {
-      width: 20px;
-      height: auto;
-    }
-    .spacer {
-      height: 100px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinRef | PSP/EMI Matchmaking Specialists</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a237e;
+            --primary-light: #303f9f;
+            --accent: #7c4dff;
+            --dark: #121212;
+            --light: #ffffff;
+            --gray: #e0e0e0;
+            --success: #00c853;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        @font-face {
+            font-family: 'Inter';
+            src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--light);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #f0f2ff 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(123, 77, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(123, 77, 255, 0.4);
+        }
+
+        /* Application Boxes */
+        .application-boxes {
+            padding: 100px 0;
+        }
+
+        .boxes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .application-box {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border: 1px solid var(--gray);
+        }
+
+        .application-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .box-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .box-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .psp-icon {
+            background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%);
+        }
+
+        .client-icon {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .box-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+
+        .box-description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .box-features {
+            margin-bottom: 30px;
+        }
+
+        .box-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .box-features li i {
+            color: var(--success);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background-color: #f9f9ff;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Form Styles */
+        .application-form {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close-form {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .boxes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="top-nav" style="display: flex; justify-content: space-between; align-items: center; padding: 10px 30px;">
-  <div class="nav-left" style="display: flex; align-items: center; gap: 10px;">
-    <a href="index.html" style="text-decoration: none; color: black; font-weight: bold; font-size: 20px; display: flex; align-items: center;">
-      <img src="1.png" alt="Left Logo" style="height: 40px;">
-      <span style="margin-left: 8px; color: black;">FinRef</span>
-    </a>
-  </div>
-  <div class="nav-center" style="flex-grow: 1; display: flex; justify-content: center; gap: 30px;">
-    <a href="#solutions">Solutions</a>
-    <a href="#clients">Clients</a>
-    <a href="#contact">Contact</a>
-    <a href="#about">About Us</a>
-  </div>
-  <div class="nav-right"><img src="2.png" alt="Right Logo" style="height: 80px;"></div>
-</div>
-<div class="spacer"></div>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="FinRef Logo">
+                </a>
+                <div class="nav-links">
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#partners">For PSPs/EMIs</a>
+                    <a href="#clients">For Clients</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
 
-<section style="padding: 120px 20px 60px; text-align: center; max-width: 900px; margin: 0 auto;">
-  <h1 style="font-size: 42px; font-weight: 800; margin-bottom: 20px; color: #1a1a1a;" id="clients">Your Scalable Payment Strategy</h1>
-  <p style="font-size: 18px; color: #444; line-height: 1.6;">
-    We tailor every step of your payment experience—from account onboarding and PSP selection to risk controls and compliance. FinRef helps transform your financial operations into a seamless, scalable revenue engine.
-  </p>
-</section>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Smart PSP/EMI Matchmaking</h1>
+            <p>We connect businesses with the perfect payment service providers and electronic money institutions, handling all the complexity of compliance and onboarding.</p>
+            <div class="hero-buttons">
+                <a href="#" class="cta-button" id="client-cta">I Need a PSP/EMI</a>
+                <a href="#" class="cta-button" id="psp-cta">We're a PSP/EMI</a>
+            </div>
+        </div>
+    </section>
 
-<section class="section" id="solutions" style="padding: 60px 20px; scroll-margin-top: 120px; background-color: #f5f7fa;">
-  <h2 style="text-align: center; font-size: 36px; margin-bottom: 50px; font-weight: 800;">Our Solutions</h2>
-  <div style="display: flex; flex-wrap: nowrap; justify-content: center; gap: 50px; max-width: 1200px; margin: 0 auto; overflow-x: auto;">
-    <div style="width: 160px; text-align: center;">
-      <img src="crypto_onboarding.png" style="width: 90px; margin-bottom: 15px;"/>
-      <p style="font-weight: 600;">PSP & MID Setup</p>
-    </div>
-    <div style="width: 160px; text-align: center;">
-      <img src="compliance_support.png" style="width: 90px; margin-bottom: 15px;"/>
-      <p style="font-weight: 600;">Crypto Onboarding</p>
-    </div>
-    <div style="width: 160px; text-align: center;">
-      <img src="business_account_opening.png" style="width: 90px; margin-bottom: 15px;"/>
-      <p style="font-weight: 600;">Compliance Support</p>
-    </div>
-    <div style="width: 160px; text-align: center;">
-      <img src="referral_partnerships.png" style="width: 90px; margin-bottom: 15px;"/>
-      <p style="font-weight: 600;">Business Account Opening</p>
-    </div>
-    <div style="width: 160px; text-align: center;">
-      <img src="kyc_tools.png" style="width: 90px; margin-bottom: 15px;"/>
-      <p style="font-weight: 600;">Referral Partnerships</p>
-    </div>
-    <div style="width: 160px; text-align: center;">
-      <img src="psp_mid_setup.png" style="width: 90px; margin-bottom: 15px;"/>
-      <p style="font-weight: 600;">KYC & Risk Tools</p>
-    </div>
-  </div>
-</section>
+    <!-- Application Boxes -->
+    <section class="application-boxes" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Find Your Perfect Match</h2>
+            <p class="section-subtitle">Whether you're a business seeking payment solutions or a provider looking for qualified clients</p>
+            
+            <div class="boxes-grid">
+                <div class="application-box">
+                    <div class="box-header">
+                        <div class="box-icon psp-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="box-title">For PSPs/EMIs</h3>
+                    </div>
+                    <p class="box-description">Get access to pre-vetted businesses that match your onboarding criteria and compliance standards.</p>
+                    <ul class="box-features">
+                        <li><i class="fas fa-check-circle"></i> Pre-qualified leads that meet your requirements</li>
+                        <li><i class="fas fa-check-circle"></i> Complete KYC package prepared for each client</li>
+                        <li><i class="fas fa-check-circle"></i> Documentation review and compliance checks</li>
+                        <li><i class="fas fa-check-circle"></i> Higher conversion rates than direct applications</li>
+                    </ul>
+                    <button class="cta-button" id="psp-apply">Apply as Provider</button>
+                </div>
+                
+                <div class="application-box">
+                    <div class="box-header">
+                        <div class="box-icon client-icon">
+                            <i class="fas fa-business-time"></i>
+                        </div>
+                        <h3 class="box-title">For Businesses</h3>
+                    </div>
+                    <p class="box-description">We match you with payment providers that fit your business model, geography, and transaction profile.</p>
+                    <ul class="box-features">
+                        <li><i class="fas fa-check-circle"></i> Access to our network of trusted PSPs/EMIs</li>
+                        <li><i class="fas fa-check-circle"></i> Expert guidance on required documentation</li>
+                        <li><i class="fas fa-check-circle"></i> Compliance preparation and KYC assistance</li>
+                        <li><i class="fas fa-check-circle"></i> Faster onboarding with higher approval rates</li>
+                    </ul>
+                    <button class="cta-button" id="client-apply">Find a Provider</button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="section" id="about" style="padding: 60px 20px; scroll-margin-top: 120px;">
-  <h2 style="text-align: center; font-size: 32px; margin-bottom: 30px;">About FinRef</h2>
-  <p style="text-align: center; max-width: 900px; margin: 0 auto; font-size: 18px; line-height: 1.7;">
-    FinRef is a strategic consultancy focused on empowering fintechs, PSPs, and online businesses to access the right payment infrastructure.
-    We act as your trusted bridge to acquirers, banks, crypto-friendly providers, and risk tools — ensuring every setup is secure, compliant, and tailored to your industry needs.
-  </p>
-</section>
+    <!-- Process Section -->
+    <section class="process">
+        <div class="container">
+            <h2 class="section-title">Our Simple Process</h2>
+            <p class="section-subtitle">How we create successful matches between businesses and payment providers</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Application</h3>
+                    <p>Complete our detailed application form so we understand your specific needs or offerings</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Document Review</h3>
+                    <p>Our compliance experts review all documentation and identify any gaps</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Matching</h3>
+                    <p>We analyze requirements and compatibility to find the best matches</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Introduction</h3>
+                    <p>We facilitate the connection with all necessary documentation prepared</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="section" id="contact" style="padding: 60px 20px 100px; scroll-margin-top: 120px; text-align: center;">
-  <div style="text-align: center; margin-bottom: 30px;">
-    <img alt="FinRef Logo" src="logo.png" style="width: 100px; opacity: 0.6; margin-bottom: 10px;"/>
-  </div>
-  <h2>Contact Us</h2>
-  <p>Email: <a href="mailto:support@finref.io">support@finref.io</a></p>
-</section>
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Find Your Perfect Payment Partner?</h2>
+            <p>Whether you're a business seeking payment solutions or a provider looking for qualified clients, we'll make the perfect match.</p>
+            <div class="cta-buttons">
+                <a href="#" class="cta-button" id="client-cta2">Business Application</a>
+                <a href="#" class="cta-button" id="psp-cta2">Provider Application</a>
+            </div>
+        </div>
+    </section>
 
-<footer style="margin-top: 40px; text-align: center; padding: 20px; background-color: #f5f5f5;">
-  <a href="https://www.linkedin.com/company/finref/" target="_blank" style="margin: 0 10px;">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" width="24" height="24">
-  </a>
-  <a href="https://www.facebook.com/profile.php?id=61578274861592" target="_blank" style="margin: 0 10px;">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg" alt="Facebook" width="24" height="24">
-  </a>
-  <a href="https://www.instagram.com/finref.io/" target="_blank" style="margin: 0 10px;">
-    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram" width="24" height="24">
-  </a>
-  <p style="text-align:center; font-size: 14px; margin-top: 10px;">© 2025 FinRef. All rights reserved.</p>
-</footer>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FinRef</h3>
+                    <p>Specialists in PSP/EMI matchmaking and compliance preparation.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/finref/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/finref.io" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/finref.io/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">For Businesses</a></li>
+                        <li><a href="#">For PSPs/EMIs</a></li>
+                        <li><a href="#">KYC Preparation</a></li>
+                        <li><a href="#">Compliance Review</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Process</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FinRef. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Forms -->
+    <div class="application-form" id="psp-form">
+        <div class="form-container">
+            <button class="close-form">&times;</button>
+            <h2 class="form-title">PSP/EMI Provider Application</h2>
+            <form>
+                <div class="form-group">
+                    <label for="psp-name">Institution Name</label>
+                    <input type="text" id="psp-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="psp-license">License Type</label>
+                    <select id="psp-license" required>
+                        <option value="">Select license type</option>
+                        <option value="emi">EMI License</option>
+                        <option value="psp">PSP License</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="psp-jurisdictions">Licensed Jurisdictions</label>
+                    <input type="text" id="psp-jurisdictions" placeholder="Countries where you're licensed" required>
+                </div>
+                <div class="form-group">
+                    <label for="psp-requirements">Client Requirements</label>
+                    <textarea id="psp-requirements" placeholder="Describe your ideal client profile and requirements"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="application-form" id="client-form">
+        <div class="form-container">
+            <button class="close-form">&times;</button>
+            <h2 class="form-title">Business Application</h2>
+            <form>
+                <div class="form-group">
+                    <label for="client-name">Business Name</label>
+                    <input type="text" id="client-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-industry">Industry</label>
+                    <input type="text" id="client-industry" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-countries">Operating Countries</label>
+                    <input type="text" id="client-countries" placeholder="Countries where you need payment services" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-needs">Specific Needs</label>
+                    <textarea id="client-needs" placeholder="Describe your payment needs and requirements"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+
+        // Form toggle functionality
+        const pspButtons = document.querySelectorAll('#psp-cta, #psp-apply, #psp-cta2');
+        const clientButtons = document.querySelectorAll('#client-cta, #client-apply, #client-cta2');
+        const pspForm = document.getElementById('psp-form');
+        const clientForm = document.getElementById('client-form');
+        const closeButtons = document.querySelectorAll('.close-form');
+
+        pspButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                pspForm.style.display = 'flex';
+            });
+        });
+
+        clientButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                clientForm.style.display = 'flex';
+            });
+        });
+
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                pspForm.style.display = 'none';
+                clientForm.style.display = 'none';
+            });
+        });
+
+        // Close form when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === pspForm) {
+                pspForm.style.display = 'none';
+            }
+            if (e.target === clientForm) {
+                clientForm.style.display = 'none';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
