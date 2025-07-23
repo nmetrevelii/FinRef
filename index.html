@@ -41,7 +41,7 @@
             padding: 0 20px;
         }
 
-        /* Enhanced Header & Logo */
+        /* Header */
         header {
             background-color: var(--light);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
@@ -51,63 +51,28 @@
         }
 
         nav {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr;
-            align-items: center;
-            padding: 15px 0;
-        }
-
-        .nav-left {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            gap: 30px;
-            flex: 1;
+            padding: 20px 0;
         }
 
         .logo {
-            position: relative;
-            z-index: 101;
-            margin: 0 auto;
-            padding: 10px 0;
             display: flex;
-            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
         }
 
         .logo img {
-            height: 60px;
-            width: auto;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-        }
-
-        .logo:hover img {
-            transform: scale(1.08) translateX(-5px);
-            filter: drop-shadow(0 4px 8px rgba(124, 77, 255, 0.2));
-        }
-
-        .logo svg {
             height: 50px;
+            width: auto;
             transition: all 0.3s;
         }
 
-        .logo-line {
-            stroke-dasharray: 120;
-            stroke-dashoffset: 120;
-            animation: drawLine 1s forwards 0.5s;
-        }
-
-        @keyframes drawLine {
-            to { stroke-dashoffset: 0; }
-        }
-
-        .logo:hover svg text {
-            fill: #7C4DFF;
-        }
-
-        @keyframes logoPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
+        .logo:hover img {
+            transform: scale(1.05);
+            opacity: 0.9;
         }
 
         .nav-links {
@@ -133,8 +98,6 @@
         .nav-actions {
             display: flex;
             gap: 15px;
-            justify-content: flex-end;
-            margin-left: auto;
         }
 
         .nav-action-btn {
@@ -168,31 +131,340 @@
             font-size: 24px;
             color: var(--dark);
             cursor: pointer;
-            z-index: 102;
         }
 
-        /* Rest of your existing CSS remains unchanged */
-        /* ... (hero, application boxes, process, footer styles) ... */
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, #f5f7ff 0%, #f0f2ff 100%);
+            text-align: center;
+        }
 
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 0 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(123, 77, 255, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(123, 77, 255, 0.4);
+        }
+
+        /* Application Boxes */
+        .application-boxes {
+            padding: 100px 0;
+        }
+
+        .boxes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .application-box {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border: 1px solid var(--gray);
+        }
+
+        .application-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .box-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .box-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 20px;
+            color: white;
+        }
+
+        .psp-icon {
+            background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%);
+        }
+
+        .client-icon {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+        }
+
+        .box-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+        }
+
+        .box-description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.7;
+        }
+
+        .box-features {
+            margin-bottom: 30px;
+        }
+
+        .box-features li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .box-features li i {
+            color: var(--success);
+            margin-right: 10px;
+            margin-top: 3px;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 100px 0;
+            background-color: #f9f9ff;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Form Styles */
+        .application-form {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .form-container {
+            background: white;
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close-form {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .form-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray);
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            nav {
-                grid-template-columns: auto 1fr auto;
-            }
-            
-            .nav-left {
-                order: 1;
-            }
-            
-            .logo {
-                order: 2;
-                margin: 0;
-                justify-content: center;
-            }
-            
-            .nav-actions {
-                order: 3;
-            }
-            
             .nav-links {
                 display: none;
                 position: fixed;
@@ -212,90 +484,272 @@
                 display: flex;
             }
 
-            .mobile-menu-btn {
-                display: block;
+            .nav-actions {
+                flex-direction: column;
+                width: 100%;
+                padding: 0 20px;
             }
 
-            .logo img {
-                height: 50px;
+            .nav-action-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                z-index: 100;
+            }
+
+            .hero {
+                padding: 160px 0 80px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .boxes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Enhanced Header -->
+    <!-- Header -->
     <header>
         <div class="container">
             <nav>
-                <div class="nav-left">
-                    <button class="mobile-menu-btn" id="menuBtn">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                    <div class="nav-links" id="navLinks">
-                        <a href="#how-it-works">How It Works</a>
-                        <a href="#process">Process</a>
-                        <a href="#about">About</a>
+                <a href="#" class="logo">
+                    <img src="logo.png" alt="FinRef Logo">
+                </a>
+                <div class="nav-links" id="navLinks">
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#process">Process</a>
+                    <a href="#about">About</a>
+                    <div class="nav-actions">
+                        <a href="#psp-form" class="nav-action-btn secondary">For PSPs/EMIs</a>
+                        <a href="#client-form" class="nav-action-btn primary">For Clients</a>
                     </div>
                 </div>
-                
-                <!-- Enhanced Logo -->
-                <a href="#" class="logo">
-                    <!-- Choose either PNG or SVG version -->
-                    <!-- PNG Version -->
-                    <img src="logo.png" alt="FinRef Logo">
-                    
-                    <!-- OR SVG Version -->
-                    <!--
-                    <svg width="180" height="40" viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 40C8.9543 40 0 31.0457 0 20C0 8.9543 8.9543 0 20 0C31.0457 0 40 8.9543 40 20C40 31.0457 31.0457 40 20 40Z" fill="#7C4DFF"/>
-                        <path d="M60 20H180" stroke="#1A237E" stroke-width="2" class="logo-line"/>
-                        <text x="80" y="28" font-family="Inter" font-weight="700" font-size="24" fill="#1A237E">FinRef</text>
-                    </svg>
-                    -->
-                </a>
-                
-                <div class="nav-actions">
-                    <a href="#psp-form" class="nav-action-btn secondary">For PSPs/EMIs</a>
-                    <a href="#client-form" class="nav-action-btn primary">For Clients</a>
-                </div>
+                <button class="mobile-menu-btn" id="menuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
             </nav>
         </div>
     </header>
 
-    <!-- Rest of your HTML remains unchanged -->
-    <!-- ... (hero section, application boxes, process, footer) ... -->
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Smart PSP/EMI Matchmaking</h1>
+            <p>We connect businesses with the perfect payment service providers and electronic money institutions, handling all the complexity of compliance and onboarding.</p>
+            <div class="hero-buttons">
+                <a href="#client-form" class="cta-button" id="client-cta">I Need a PSP/EMI</a>
+                <a href="#psp-form" class="cta-button" id="psp-cta">We're a PSP/EMI</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Boxes -->
+    <section class="application-boxes" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Find Your Perfect Match</h2>
+            <p class="section-subtitle">Whether you're a business seeking payment solutions or a provider looking for qualified clients</p>
+            
+            <div class="boxes-grid">
+                <div class="application-box">
+                    <div class="box-header">
+                        <div class="box-icon psp-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h3 class="box-title">For PSPs/EMIs</h3>
+                    </div>
+                    <p class="box-description">Get access to pre-vetted businesses that match your onboarding criteria and compliance standards.</p>
+                    <ul class="box-features">
+                        <li><i class="fas fa-check-circle"></i> Pre-qualified leads that meet your requirements</li>
+                        <li><i class="fas fa-check-circle"></i> Complete KYC package prepared for each client</li>
+                        <li><i class="fas fa-check-circle"></i> Documentation review and compliance checks</li>
+                        <li><i class="fas fa-check-circle"></i> Higher conversion rates than direct applications</li>
+                    </ul>
+                    <button class="cta-button" id="psp-apply">Apply as Provider</button>
+                </div>
+                
+                <div class="application-box">
+                    <div class="box-header">
+                        <div class="box-icon client-icon">
+                            <i class="fas fa-business-time"></i>
+                        </div>
+                        <h3 class="box-title">For Businesses</h3>
+                    </div>
+                    <p class="box-description">We match you with payment providers that fit your business model, geography, and transaction profile.</p>
+                    <ul class="box-features">
+                        <li><i class="fas fa-check-circle"></i> Access to our network of trusted PSPs/EMIs</li>
+                        <li><i class="fas fa-check-circle"></i> Expert guidance on required documentation</li>
+                        <li><i class="fas fa-check-circle"></i> Compliance preparation and KYC assistance</li>
+                        <li><i class="fas fa-check-circle"></i> Faster onboarding with higher approval rates</li>
+                    </ul>
+                    <button class="cta-button" id="client-apply">Find a Provider</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process" id="process">
+        <div class="container">
+            <h2 class="section-title">Our Simple Process</h2>
+            <p class="section-subtitle">How we create successful matches between businesses and payment providers</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Application</h3>
+                    <p>Complete our detailed application form so we understand your specific needs or offerings</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Document Review</h3>
+                    <p>Our compliance experts review all documentation and identify any gaps</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Matching</h3>
+                    <p>We analyze requirements and compatibility to find the best matches</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Introduction</h3>
+                    <p>We facilitate the connection with all necessary documentation prepared</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Find Your Perfect Payment Partner?</h2>
+            <p>Whether you're a business seeking payment solutions or a provider looking for qualified clients, we'll make the perfect match.</p>
+            <div class="cta-buttons">
+                <a href="#client-form" class="cta-button" id="client-cta2">Business Application</a>
+                <a href="#psp-form" class="cta-button" id="psp-cta2">Provider Application</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FinRef</h3>
+                    <p>Specialists in PSP/EMI matchmaking and compliance preparation.</p>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/company/finref/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.facebook.com/people/FinRef/61578274861592/" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/finref.io/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">For Businesses</a></li>
+                        <li><a href="#">For PSPs/EMIs</a></li>
+                        <li><a href="#">KYC Preparation</a></li>
+                        <li><a href="#">Compliance Review</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Our Process</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Compliance</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FinRef. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Application Forms -->
+    <div class="application-form" id="psp-form">
+        <div class="form-container">
+            <button class="close-form">&times;</button>
+            <h2 class="form-title">PSP/EMI Provider Application</h2>
+            <form>
+                <div class="form-group">
+                    <label for="psp-name">Institution Name</label>
+                    <input type="text" id="psp-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="psp-license">License Type</label>
+                    <select id="psp-license" required>
+                        <option value="">Select license type</option>
+                        <option value="emi">EMI License</option>
+                        <option value="psp">PSP License</option>
+                        <option value="both">Both</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="psp-jurisdictions">Licensed Jurisdictions</label>
+                    <input type="text" id="psp-jurisdictions" placeholder="Countries where you're licensed" required>
+                </div>
+                <div class="form-group">
+                    <label for="psp-requirements">Client Requirements</label>
+                    <textarea id="psp-requirements" placeholder="Describe your ideal client profile and requirements"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="application-form" id="client-form">
+        <div class="form-container">
+            <button class="close-form">&times;</button>
+            <h2 class="form-title">Business Application</h2>
+            <form>
+                <div class="form-group">
+                    <label for="client-name">Business Name</label>
+                    <input type="text" id="client-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-industry">Industry</label>
+                    <input type="text" id="client-industry" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-countries">Operating Countries</label>
+                    <input type="text" id="client-countries" placeholder="Countries where you need payment services" required>
+                </div>
+                <div class="form-group">
+                    <label for="client-needs">Specific Needs</label>
+                    <textarea id="client-needs" placeholder="Describe your payment needs and requirements"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </form>
+        </div>
+    </div>
 
     <script>
-        // Enhanced Logo Interactions
-        const logo = document.querySelector('.logo img') || document.querySelector('.logo svg');
-        
-        // Scroll effects
-        window.addEventListener('scroll', () => {
-            const scrollY = window.scrollY;
-            const scale = scrollY > 50 ? 0.95 : 1;
-            
-            if (logo.tagName === 'IMG') {
-                logo.style.transform = `scale(${scale})`;
-                if (scrollY > 10) {
-                    logo.style.border = '2px solid rgba(124, 77, 255, 0.1)';
-                    logo.style.borderRadius = '8px';
-                    logo.style.padding = '3px';
-                } else {
-                    logo.style.border = 'none';
-                }
-            }
-        });
-
-        // Click pulse effect
-        document.querySelectorAll('.cta-button').forEach(btn => {
-            btn.addEventListener('click', () => {
-                logo.style.animation = 'logoPulse 0.6s';
-                setTimeout(() => {
-                    logo.style.animation = '';
-                }, 600);
-            });
-        });
-
         // Mobile menu toggle
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
@@ -306,9 +760,58 @@
                 ? '<i class="fas fa-times"></i>' 
                 : '<i class="fas fa-bars"></i>';
         });
+        
+        // Form toggle functionality
+        const pspButtons = document.querySelectorAll('.nav-action-btn.secondary, #psp-cta, #psp-apply, #psp-cta2');
+        const clientButtons = document.querySelectorAll('.nav-action-btn.primary, #client-cta, #client-apply, #client-cta2');
+        const pspForm = document.getElementById('psp-form');
+        const clientForm = document.getElementById('client-form');
+        const closeButtons = document.querySelectorAll('.close-form');
 
-        // Existing form toggle and smooth scrolling scripts
-        // ... (keep your existing JavaScript) ...
+        pspButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                pspForm.style.display = 'flex';
+            });
+        });
+
+        clientButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                clientForm.style.display = 'flex';
+            });
+        });
+
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                pspForm.style.display = 'none';
+                clientForm.style.display = 'none';
+            });
+        });
+
+        // Close form when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === pspForm) {
+                pspForm.style.display = 'none';
+            }
+            if (e.target === clientForm) {
+                clientForm.style.display = 'none';
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#' && 
+                    !this.classList.contains('nav-action-btn')) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>
