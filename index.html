@@ -58,10 +58,21 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-text {
             font-weight: 700;
             font-size: 1.5rem;
-            color: var(--primary);
-            text-decoration: none;
+            color: #000000; /* Changed to black */
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
         .nav-links {
@@ -82,35 +93,6 @@
         .nav-links a:hover {
             color: var(--accent);
             background: rgba(124, 77, 255, 0.1);
-        }
-
-        .nav-actions {
-            display: flex;
-            gap: 15px;
-        }
-
-        .nav-action-btn {
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 15px;
-            transition: all 0.3s;
-            text-decoration: none;
-        }
-
-        .nav-action-btn.primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
-        }
-
-        .nav-action-btn.secondary {
-            color: var(--primary);
-            border: 1px solid var(--gray);
-        }
-
-        .nav-action-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .mobile-menu-btn {
@@ -171,6 +153,20 @@
         /* Application Boxes */
         .application-boxes {
             padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            font-size: 1.1rem;
         }
 
         .boxes-grid {
@@ -288,6 +284,17 @@
             font-size: 1.2rem;
             margin-bottom: 15px;
             color: var(--dark);
+        }
+
+        /* About Section */
+        #about {
+            padding: 100px 0;
+        }
+
+        /* Clients Section */
+        #clients {
+            padding: 100px 0;
+            background-color: #f9f9ff;
         }
 
         /* CTA Section */
@@ -473,17 +480,6 @@
                 display: flex;
             }
 
-            .nav-actions {
-                flex-direction: column;
-                width: 100%;
-                padding: 0 20px;
-            }
-
-            .nav-action-btn {
-                width: 100%;
-                text-align: center;
-            }
-
             .mobile-menu-btn {
                 display: block;
                 z-index: 100;
@@ -516,15 +512,14 @@
     <header>
         <div class="container">
             <nav>
-                <a href="#" class="logo">FinRef</a>
+                <a href="#" class="logo">
+                    <img src="https://via.placeholder.com/40x40" alt="FinRef Logo"> <!-- Replace with your logo -->
+                    <span class="logo-text">FinRef</span>
+                </a>
                 <div class="nav-links" id="navLinks">
                     <a href="#contact">Contact</a>
                     <a href="#about">About Us</a>
                     <a href="#clients">Clients</a>
-                    <div class="nav-actions">
-                        <a href="#psp-form" class="nav-action-btn secondary">For PSPs/EMIs</a>
-                        <a href="#client-form" class="nav-action-btn primary">For Clients</a>
-                    </div>
                 </div>
                 <button class="mobile-menu-btn" id="menuBtn">
                     <i class="fas fa-bars"></i>
@@ -620,6 +615,28 @@
         </div>
     </section>
 
+    <!-- About Us Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <p class="section-subtitle">Learn more about our company and mission</p>
+            <div style="text-align: center; padding: 40px 0;">
+                <p>FinRef is a leading matchmaking service specializing in connecting businesses with payment service providers and electronic money institutions. Our team of experts ensures seamless onboarding and compliance processes for all parties involved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Section -->
+    <section id="clients">
+        <div class="container">
+            <h2 class="section-title">Our Clients</h2>
+            <p class="section-subtitle">Businesses and institutions that trust our services</p>
+            <div style="text-align: center; padding: 40px 0;">
+                <p>We work with a diverse range of clients from various industries and regions. Our network includes both established financial institutions and innovative startups looking for the perfect payment solutions.</p>
+            </div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
         <div class="container">
@@ -648,19 +665,19 @@
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="#">For Businesses</a></li>
-                        <li><a href="#">For PSPs/EMIs</a></li>
-                        <li><a href="#">KYC Preparation</a></li>
-                        <li><a href="#">Compliance Review</a></li>
+                        <li><a href="#how-it-works">For Businesses</a></li>
+                        <li><a href="#how-it-works">For PSPs/EMIs</a></li>
+                        <li><a href="#process">KYC Preparation</a></li>
+                        <li><a href="#process">Compliance Review</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Process</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#process">Our Process</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#contact">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -750,8 +767,8 @@
         });
         
         // Form toggle functionality
-        const pspButtons = document.querySelectorAll('.nav-action-btn.secondary, #psp-cta, #psp-apply, #psp-cta2');
-        const clientButtons = document.querySelectorAll('.nav-action-btn.primary, #client-cta, #client-apply, #client-cta2');
+        const pspButtons = document.querySelectorAll('#psp-cta, #psp-apply, #psp-cta2');
+        const clientButtons = document.querySelectorAll('#client-cta, #client-apply, #client-cta2');
         const pspForm = document.getElementById('psp-form');
         const clientForm = document.getElementById('client-form');
         const closeButtons = document.querySelectorAll('.close-form');
@@ -790,8 +807,7 @@
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') !== '#' && 
-                    !this.classList.contains('nav-action-btn')) {
+                if (this.getAttribute('href') !== '#') {
                     e.preventDefault();
                     document.querySelector(this.getAttribute('href')).scrollIntoView({
                         behavior: 'smooth',
