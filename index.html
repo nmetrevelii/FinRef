@@ -3,12 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- your favicon -->
-    <link rel="icon" href="finref_shield_favicon.png" type="image/png" sizes="32x32">
-    
-    <title>FinRef | Global PSP/EMI Matchmaking & Compliance Experts</title>
-    …
     <title>FinRef | Global PSP/EMI Matchmaking & Compliance Experts</title>
     <meta name="description" content="World's leading PSP/EMI referral service. We connect businesses with trusted payment providers and ensure seamless compliance onboarding.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -87,13 +81,13 @@
 
         /* Header */
         header {
-            background-color: var(--light);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
-        }
+header {
+    background-color: var(--light);
+    position: static;    /* or relative */
+    width: 100%;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
+}       
 
         header.scrolled {
             box-shadow: var(--shadow-md);
