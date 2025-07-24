@@ -3,174 +3,384 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinRef | PSP/EMI Matchmaking Specialists</title>
+    <title>FinRef | Global PSP/EMI Matchmaking & Compliance Experts</title>
+    <meta name="description" content="World's leading PSP/EMI referral service. We connect businesses with trusted payment providers and ensure seamless compliance onboarding.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a237e;
-            --primary-light: #303f9f;
-            --accent: #7c4dff;
-            --dark: #121212;
-            --light: #ffffff;
-            --gray: #e0e0e0;
-            --success: #00c853;
+            --primary: #1A3A8F;
+            --primary-dark: #122862;
+            --primary-light: #2A56D6;
+            --accent: #00C4CC;
+            --accent-dark: #0099A0;
+            --dark: #0A0F2E;
+            --darker: #060917;
+            --light: #FFFFFF;
+            --light-gray: #F8FAFF;
+            --gray: #E2E8F0;
+            --dark-gray: #94A3B8;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --error: #EF4444;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --border-radius-lg: 16px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-
-        @font-face {
-            font-family: 'Inter';
-            src: url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
         }
 
         body {
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
         }
 
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 32px;
+        }
+
+        .section {
+            padding: 120px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--dark-gray);
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
         }
 
         /* Header */
         header {
             background-color: var(--light);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
             position: fixed;
             width: 100%;
-            z-index: 100;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            box-shadow: var(--shadow-md);
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 24px 0;
         }
 
         .logo {
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             color: var(--primary);
             text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            color: var(--accent);
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 32px;
             align-items: center;
         }
 
         .nav-links a {
             color: var(--dark);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 8px 12px;
-            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .nav-links a:hover {
-            color: var(--accent);
-            background: rgba(124, 77, 255, 0.1);
+            color: var(--primary);
         }
 
         .nav-actions {
             display: flex;
-            gap: 15px;
+            gap: 16px;
+            align-items: center;
+            margin-left: 32px;
         }
 
-        .nav-action-btn {
-            padding: 10px 20px;
-            border-radius: 6px;
-            font-weight: 500;
-            font-size: 15px;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 0.9375rem;
             transition: all 0.3s;
             text-decoration: none;
+            cursor: pointer;
+            gap: 8px;
+            white-space: nowrap;
         }
 
-        .nav-action-btn.primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--light);
+            box-shadow: 0 4px 15px rgba(26, 58, 143, 0.3);
         }
 
-        .nav-action-btn.secondary {
+        .btn-primary:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 58, 143, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
             color: var(--primary);
             border: 1px solid var(--gray);
         }
 
-        .nav-action-btn:hover {
+        .btn-secondary:hover {
+            background-color: rgba(42, 86, 214, 0.05);
+            border-color: var(--primary-light);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--dark);
+            box-shadow: 0 4px 15px rgba(0, 196, 204, 0.3);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-dark);
+            color: var(--light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 196, 204, 0.4);
         }
 
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 1.5rem;
             color: var(--dark);
             cursor: pointer;
+            z-index: 1001;
         }
 
         /* Hero Section */
         .hero {
-            padding: 180px 0 100px;
-            background: linear-gradient(135deg, #f5f7ff 0%, #f0f2ff 100%);
+            padding: 220px 0 160px;
+            background: linear-gradient(135deg, var(--darker) 0%, var(--primary-dark) 100%);
+            color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
+            font-size: 3.5rem;
+            margin-bottom: 24px;
+            color: var(--light);
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            color: var(--accent);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            color: #666;
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.85);
             max-width: 700px;
-            margin: 0 auto 40px;
+            margin: 0 auto 48px;
+            font-weight: 400;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 80px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            background-color: var(--light-gray);
+            padding: 40px 0;
+        }
+
+        .badges-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .badge-item {
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            filter: grayscale(30%);
+        }
+
+        .badge-item:hover {
+            opacity: 1;
+            filter: grayscale(0);
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .feature-card {
+            background: var(--light);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+            border: 1px solid var(--gray);
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 24px;
             color: white;
-            padding: 14px 32px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin: 0 10px;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            box-shadow: 0 4px 15px rgba(123, 77, 255, 0.3);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
         }
 
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(123, 77, 255, 0.4);
+        .feature-title {
+            font-size: 1.375rem;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .feature-description {
+            color: var(--dark-gray);
+            margin-bottom: 0;
         }
 
         /* Application Boxes */
         .application-boxes {
-            padding: 100px 0;
+            background-color: var(--light-gray);
         }
 
         .boxes-grid {
@@ -181,17 +391,29 @@
         }
 
         .application-box {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
+            background: var(--light);
+            border-radius: var(--border-radius-lg);
+            padding: 48px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
             border: 1px solid var(--gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .application-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
         }
 
         .application-box:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-lg);
         }
 
         .box-header {
@@ -201,32 +423,32 @@
         }
 
         .box-icon {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 20px;
-            font-size: 20px;
+            font-size: 24px;
             color: white;
         }
 
         .psp-icon {
-            background: linear-gradient(135deg, #4a00e0 0%, #8e2de2 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
         }
 
         .client-icon {
-            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
         }
 
         .box-title {
-            font-size: 1.8rem;
+            font-size: 1.75rem;
             color: var(--dark);
         }
 
         .box-description {
-            color: #666;
+            color: var(--dark-gray);
             margin-bottom: 30px;
             line-height: 1.7;
         }
@@ -239,18 +461,32 @@
             margin-bottom: 12px;
             display: flex;
             align-items: flex-start;
+            color: var(--dark-gray);
         }
 
         .box-features li i {
             color: var(--success);
-            margin-right: 10px;
-            margin-top: 3px;
+            margin-right: 12px;
+            margin-top: 4px;
+            font-size: 1.1rem;
         }
 
         /* Process Section */
         .process {
-            padding: 100px 0;
-            background-color: #f9f9ff;
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNiw1OCwxNDMsMC4wMykiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
+            opacity: 0.3;
         }
 
         .steps {
@@ -259,21 +495,32 @@
             margin-top: 50px;
             flex-wrap: wrap;
             gap: 20px;
+            position: relative;
+            z-index: 1;
         }
 
         .step {
             flex: 1;
-            min-width: 200px;
+            min-width: 250px;
             text-align: center;
-            padding: 30px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            padding: 40px 30px;
+            background: var(--light);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary-light);
         }
 
         .step-number {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             border-radius: 50%;
             display: flex;
@@ -281,21 +528,132 @@
             justify-content: center;
             color: white;
             font-weight: 700;
-            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            margin: 0 auto 24px;
+            box-shadow: 0 5px 15px rgba(26, 58, 143, 0.3);
         }
 
         .step-title {
-            font-size: 1.2rem;
-            margin-bottom: 15px;
+            font-size: 1.25rem;
+            margin-bottom: 16px;
             color: var(--dark);
+        }
+
+        .step p {
+            color: var(--dark-gray);
+            font-size: 0.9375rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--darker);
+            color: var(--light);
+        }
+
+        .testimonials .section-title,
+        .testimonials .section-subtitle {
+            color: var(--light);
+        }
+
+        .testimonials .section-subtitle {
+            opacity: 0.8;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: var(--border-radius-lg);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--accent);
+        }
+
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 24px;
+            color: rgba(255, 255, 255, 0.9);
+            position: relative;
+        }
+
+        .testimonial-content::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: -10px;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: serif;
+            line-height: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        .author-info h4 {
+            font-size: 1.125rem;
+            margin-bottom: 4px;
+            color: var(--light);
+        }
+
+        .author-info p {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
         }
 
         /* CTA Section */
         .cta-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
             color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
         .cta-section h2 {
@@ -307,26 +665,112 @@
             max-width: 600px;
             margin: 0 auto 40px;
             opacity: 0.9;
+            font-size: 1.125rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-gray);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-top: 60px;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(26, 58, 143, 0.1), rgba(0, 196, 204, 0.2));
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+
+        .about-text p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+        }
+
+        .about-features {
+            margin-top: 30px;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .about-feature i {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-top: 4px;
+        }
+
+        .about-feature h4 {
+            font-size: 1.125rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .about-feature p {
+            margin-bottom: 0;
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark);
+            background-color: var(--darker);
             color: white;
-            padding: 60px 0 30px;
+            padding: 100px 0 40px;
+            position: relative;
         }
 
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 60px;
+            margin-bottom: 60px;
         }
 
         .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
+            font-size: 1.125rem;
+            margin-bottom: 24px;
             color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .footer-column ul {
@@ -334,43 +778,87 @@
         }
 
         .footer-column ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-column ul li a {
-            color: #aaa;
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            font-size: 0.9375rem;
         }
 
         .footer-column ul li a:hover {
-            color: white;
+            color: var(--accent);
+            padding-left: 4px;
+        }
+
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-logo .logo {
+            font-size: 1.5rem;
+        }
+
+        .footer-logo p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9375rem;
+            line-height: 1.6;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 16px;
         }
 
         .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
             color: white;
-            font-size: 1.2rem;
-            transition: color 0.3s;
+            font-size: 1rem;
+            transition: all 0.3s;
         }
 
         .social-links a:hover {
-            color: var(--accent);
+            background-color: var(--accent);
+            color: var(--dark);
+            transform: translateY(-3px);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 30px;
+            padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.875rem;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
         }
 
         /* Form Styles */
@@ -381,82 +869,150 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(10, 15, 46, 0.9);
             z-index: 1000;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(5px);
+            padding: 20px;
         }
 
         .form-container {
-            background: white;
-            border-radius: 16px;
-            padding: 40px;
+            background: var(--light);
+            border-radius: var(--border-radius-lg);
+            padding: 60px;
             width: 100%;
-            max-width: 600px;
+            max-width: 700px;
             position: relative;
+            box-shadow: var(--shadow-xl);
+            animation: fadeInUp 0.4s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .close-form {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 24px;
+            right: 24px;
             background: none;
             border: none;
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
-            color: #666;
+            color: var(--dark-gray);
+            transition: color 0.3s;
         }
 
-        .form-title {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
+        .close-form:hover {
             color: var(--dark);
         }
 
+        .form-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: var(--dark);
+            text-align: center;
+        }
+
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 500;
-            color: #555;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.9375rem;
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px 16px;
             border: 1px solid var(--gray);
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: all 0.3s;
+            background-color: var(--light);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 58, 143, 0.1);
         }
 
         .form-group textarea {
-            min-height: 120px;
+            min-height: 140px;
+            resize: vertical;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: white;
+            color: var(--light);
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: all 0.3s;
+            margin-top: 16px;
+            box-shadow: 0 4px 15px rgba(26, 58, 143, 0.3);
         }
 
         .submit-btn:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(26, 58, 143, 0.4);
         }
 
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .section {
+                padding: 100px 0;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
         @media (max-width: 768px) {
+            .section {
+                padding: 80px 0;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.125rem;
+            }
+            
             .nav-links {
                 display: none;
                 position: fixed;
@@ -464,12 +1020,18 @@
                 left: 0;
                 width: 100%;
                 height: 100vh;
-                background: white;
+                background: var(--darker);
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 gap: 30px;
-                z-index: 99;
+                z-index: 999;
+                padding: 80px 40px;
+            }
+
+            .nav-links a {
+                color: white;
+                font-size: 1.25rem;
             }
 
             .nav-links.active {
@@ -480,50 +1042,73 @@
                 flex-direction: column;
                 width: 100%;
                 padding: 0 20px;
-            }
-
-            .nav-action-btn {
-                width: 100%;
-                text-align: center;
+                margin-left: 0;
+                margin-top: 30px;
             }
 
             .mobile-menu-btn {
                 display: block;
-                z-index: 100;
             }
-
-            .hero {
-                padding: 160px 0 80px;
+            
+            .hero-buttons,
+            .cta-buttons {
+                flex-direction: column;
+                gap: 16px;
             }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
+            
             .boxes-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .form-container {
+                padding: 40px 30px;
+            }
+        }
 
-            .steps {
-                flex-direction: column;
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .application-box,
+            .feature-card {
+                padding: 30px;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="header">
         <div class="container">
             <nav>
-                <a href="#" class="logo">FinRef</a>
+                <a href="#" class="logo"><i class="fas fa-shield-alt logo-icon"></i>FinRef</a>
                 <div class="nav-links" id="navLinks">
+                    <a href="#services">Services</a>
+                    <a href="#about">About</a>
+                    <a href="#process">Process</a>
+                    <a href="#testimonials">Clients</a>
                     <a href="#contact">Contact</a>
-                    <a href="#about">About Us</a>
-                    <a href="#clients">Clients</a>
+                    <div class="nav-actions">
+                        <a href="#psp-form" class="btn btn-secondary" id="psp-nav-btn">For Providers</a>
+                        <a href="#client-form" class="btn btn-primary" id="client-nav-btn">For Businesses</a>
+                    </div>
                 </div>
                 <button class="mobile-menu-btn" id="menuBtn">
                     <i class="fas fa-bars"></i>
@@ -534,86 +1119,294 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Smart PSP/EMI Matchmaking</h1>
-            <p>We connect businesses with the perfect payment service providers and electronic money institutions, handling all the complexity of compliance and onboarding.</p>
+        <div class="hero-content">
+            <h1>Global <span>PSP/EMI</span> Matchmaking & Compliance Experts</h1>
+            <p>We connect businesses with trusted payment providers worldwide and streamline the complex compliance onboarding process. Our network spans 150+ PSPs/EMIs across 40+ jurisdictions.</p>
             <div class="hero-buttons">
-                <a href="#client-form" class="cta-button" id="client-cta">I Need a PSP/EMI</a>
-                <a href="#psp-form" class="cta-button" id="psp-cta">We're a PSP/EMI</a>
+                <a href="#client-form" class="btn btn-accent" id="client-cta">
+                    <i class="fas fa-search"></i> Find My Provider
+                </a>
+                <a href="#psp-form" class="btn btn-primary" id="psp-cta">
+                    <i class="fas fa-handshake"></i> Partner With Us
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Success Rate</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">150+</div>
+                    <div class="stat-label">PSP/EMI Partners</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Jurisdictions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24h</
+                    <div class="stat-label">Avg. Response Time</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container">
+            <div class="badges-container">
+                <div class="badge-item">
+                    <img src="https://via.placeholder.com/150x60?text=Visa" alt="Visa" height="40">
+                </div>
+                <div class="badge-item">
+                    <img src="https://via.placeholder.com/150x60?text=Mastercard" alt="Mastercard" height="40">
+                </div>
+                <div class="badge-item">
+                    <img src="https://via.placeholder.com/150x60?text=PCI+DSS" alt="PCI DSS" height="40">
+                </div>
+                <div class="badge-item">
+                    <img src="https://via.placeholder.com/150x60?text=EMI+License" alt="EMI License" height="40">
+                </div>
+                <div class="badge-item">
+                    <img src="https://via.placeholder.com/150x60?text=PSP+License" alt="PSP License" height="40">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section" id="services">
+        <div class="container">
+            <h2 class="section-title">Our Value Proposition</h2>
+            <p class="section-subtitle">We simplify the complex world of payment services by connecting businesses with the perfect providers while handling all compliance requirements.</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3 class="feature-title">Precision Matching</h3>
+                    <p class="feature-description">Our proprietary algorithm matches your business with providers based on 27 criteria including business model, risk profile, geography, and volume.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">Compliance Expertise</h3>
+                    <p class="feature-description">We navigate complex regulatory landscapes with specialists in AML, KYC, and financial regulations across 40+ jurisdictions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="feature-title">Time Savings</h3>
+                    <p class="feature-description">Reduce your provider search from months to days with our curated network of pre-vetted payment institutions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="feature-title">Cost Efficiency</h3>
+                    <p class="feature-description">Our volume-based relationships secure preferential rates you couldn't access independently, saving 15-40% on processing fees.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3 class="feature-title">Global Reach</h3>
+                    <p class="feature-description">Access local payment methods and currencies through our worldwide network of PSPs and EMIs.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3 class="feature-title">Risk Mitigation</h3>
+                    <p class="feature-description">We monitor provider stability and performance, alerting you to potential issues before they impact your operations.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Application Boxes -->
-    <section class="application-boxes" id="how-it-works">
+    <section class="application-boxes section">
         <div class="container">
-            <h2 class="section-title">Find Your Perfect Match</h2>
-            <p class="section-subtitle">Whether you're a business seeking payment solutions or a provider looking for qualified clients</p>
+            <h2 class="section-title">Tailored Solutions</h2>
+            <p class="section-subtitle">Whether you're a payment provider looking for quality clients or a business seeking payment solutions, we have you covered.</p>
             
             <div class="boxes-grid">
-                <div class="application-box">
+                <div class="application-box" id="psp-box">
                     <div class="box-header">
                         <div class="box-icon psp-icon">
                             <i class="fas fa-handshake"></i>
                         </div>
-                        <h3 class="box-title">For PSPs/EMIs</h3>
+                        <h3 class="box-title">For Payment Providers</h3>
                     </div>
-                    <p class="box-description">Get access to pre-vetted businesses that match your onboarding criteria and compliance standards.</p>
+                    <p class="box-description">Join our elite network of payment service providers and electronic money institutions to access pre-qualified clients that match your risk appetite and specialization.</p>
                     <ul class="box-features">
-                        <li><i class="fas fa-check-circle"></i> Pre-qualified leads that meet your requirements</li>
-                        <li><i class="fas fa-check-circle"></i> Complete KYC package prepared for each client</li>
-                        <li><i class="fas fa-check-circle"></i> Documentation review and compliance checks</li>
-                        <li><i class="fas fa-check-circle"></i> Higher conversion rates than direct applications</li>
+                        <li><i class="fas fa-check"></i> Access to vetted merchants in your target markets</li>
+                        <li><i class="fas fa-check"></i> Reduced customer acquisition costs</li>
+                        <li><i class="fas fa-check"></i> Compliance pre-screening services</li>
+                        <li><i class="fas fa-check"></i> Volume-based revenue opportunities</li>
+                        <li><i class="fas fa-check"></i> Market intelligence and benchmarking</li>
                     </ul>
-                    <button class="cta-button" id="psp-apply">Apply as Provider</button>
+                    <a href="#psp-form" class="btn btn-primary" id="psp-box-btn">Partner With Us</a>
                 </div>
                 
-                <div class="application-box">
+                <div class="application-box" id="client-box">
                     <div class="box-header">
                         <div class="box-icon client-icon">
-                            <i class="fas fa-business-time"></i>
+                            <i class="fas fa-search"></i>
                         </div>
                         <h3 class="box-title">For Businesses</h3>
                     </div>
-                    <p class="box-description">We match you with payment providers that fit your business model, geography, and transaction profile.</p>
+                    <p class="box-description">Find the perfect payment provider tailored to your business model, risk profile, and geographic needs without the hassle of endless searches and compliance hurdles.</p>
                     <ul class="box-features">
-                        <li><i class="fas fa-check-circle"></i> Access to our network of trusted PSPs/EMIs</li>
-                        <li><i class="fas fa-check-circle"></i> Expert guidance on required documentation</li>
-                        <li><i class="fas fa-check-circle"></i> Compliance preparation and KYC assistance</li>
-                        <li><i class="fas fa-check-circle"></i> Faster onboarding with higher approval rates</li>
+                        <li><i class="fas fa-check"></i> Matched with 3 ideal providers in 72 hours</li>
+                        <li><i class="fas fa-check"></i> Full compliance onboarding support</li>
+                        <li><i class="fas fa-check"></i> Negotiated preferential rates</li>
+                        <li><i class="fas fa-check"></i> Ongoing performance monitoring</li>
+                        <li><i class="fas fa-check"></i> Multi-provider redundancy options</li>
                     </ul>
-                    <button class="cta-button" id="client-apply">Find a Provider</button>
+                    <a href="#client-form" class="btn btn-accent" id="client-box-btn">Find My Provider</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
-    <section class="process" id="process">
+    <section class="process section" id="process">
         <div class="container">
-            <h2 class="section-title">Our Simple Process</h2>
-            <p class="section-subtitle">How we create successful matches between businesses and payment providers</p>
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Our streamlined process gets you matched with the right payment solutions faster than traditional approaches.</p>
             
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3 class="step-title">Application</h3>
-                    <p>Complete our detailed application form so we understand your specific needs or offerings</p>
+                    <h4 class="step-title">Needs Assessment</h4>
+                    <p>We analyze your business model, processing volumes, target markets, and risk profile through our detailed questionnaire.</p>
                 </div>
+                
                 <div class="step">
                     <div class="step-number">2</div>
-                    <h3 class="step-title">Document Review</h3>
-                    <p>Our compliance experts review all documentation and identify any gaps</p>
+                    <h4 class="step-title">Provider Matching</h4>
+                    <p>Our algorithm identifies 3-5 ideal providers from our network based on 27 matching criteria.</p>
                 </div>
+                
                 <div class="step">
                     <div class="step-number">3</div>
-                    <h3 class="step-title">Matching</h3>
-                    <p>We analyze requirements and compatibility to find the best matches</p>
+                    <h4 class="step-title">Compliance Prep</h4>
+                    <p>We prepare all required documentation and ensure your application meets regulatory requirements.</p>
                 </div>
+                
                 <div class="step">
                     <div class="step-number">4</div>
-                    <h3 class="step-title">Introduction</h3>
-                    <p>We facilitate the connection with all necessary documentation prepared</p>
+                    <h4 class="step-title">Introduction & Negotiation</h4>
+                    <p>We facilitate introductions and negotiate terms on your behalf for optimal pricing and conditions.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <h4 class="step-title">Onboarding Support</h4>
+                    <p>Our team guides you through technical integration and remains available for ongoing support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials section" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Trusted by Industry Leaders</h2>
+            <p class="section-subtitle">Hear from businesses and payment providers who've transformed their operations through our matchmaking platform.</p>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        FinRef matched us with three perfect PSPs for our high-risk e-commerce business when traditional providers kept rejecting us. Their compliance expertise made all the difference in getting approved.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JD</div>
+                        <div class="author-info">
+                            <h4>James Donovan</h4>
+                            <p>CEO, Global Nutra</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        As a new EMI in the European market, FinRef has delivered a steady stream of qualified merchants that match our risk parameters. Their vetting process saves us countless hours in due diligence.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MK</div>
+                        <div class="author-info">
+                            <h4>Maria Kowalski</h4>
+                            <p>Head of Sales, EuroPay EMI</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        We needed local payment methods in 7 Asian countries. FinRef connected us with regional specialists and negotiated rates 30% better than we could secure ourselves. The entire process took 2 weeks.
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TL</div>
+                        <div class="author-info">
+                            <h4>Thomas Lee</h4>
+                            <p>COO, TravelTech Asia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about section" id="about">
+        <div class="container">
+            <h2 class="section-title">About FinRef</h2>
+            <p class="section-subtitle">We're the bridge between innovative businesses and payment providers in the complex world of financial technology.</p>
+            
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://via.placeholder.com/600x400?text=FinRef+Team" alt="FinRef Team">
+                </div>
+                <div class="about-text">
+                    <h3>Global Payment Solutions, Simplified</h3>
+                    <p>Founded in 2018 by payments industry veterans, FinRef was created to solve a fundamental problem: the disconnect between businesses needing payment solutions and providers looking for quality merchants.</p>
+                    <p>With team members from regulatory, banking, and fintech backgrounds, we understand both sides of the equation. Our network now spans 150+ payment providers across 40 jurisdictions, processing over $12B annually.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-user-shield"></i>
+                            <div>
+                                <h4>Regulatory Expertise</h4>
+                                <p>Our team includes former regulators and compliance officers who understand the nuances of financial licensing worldwide.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <i class="fas fa-project-diagram"></i>
+                            <div>
+                                <h4>Strategic Partnerships</h4>
+                                <p>We maintain direct relationships with acquiring banks, card networks, and alternative payment methods to create complete solutions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="about-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <div>
+                                <h4>Data-Driven Matching</h4>
+                                <p>Our proprietary matching algorithm continuously learns from thousands of successful placements to improve recommendations.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -621,12 +1414,16 @@
 
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
-        <div class="container">
-            <h2>Ready to Find Your Perfect Payment Partner?</h2>
-            <p>Whether you're a business seeking payment solutions or a provider looking for qualified clients, we'll make the perfect match.</p>
+        <div class="cta-content">
+            <h2>Ready to Transform Your Payment Strategy?</h2>
+            <p>Whether you're a business seeking payment solutions or a provider looking for quality merchants, our experts are ready to help.</p>
             <div class="cta-buttons">
-                <a href="#client-form" class="cta-button" id="client-cta2">Business Application</a>
-                <a href="#psp-form" class="cta-button" id="psp-cta2">Provider Application</a>
+                <a href="#client-form" class="btn btn-accent btn-large" id="client-cta2">
+                    <i class="fas fa-search"></i> Find My Provider
+                </a>
+                <a href="#psp-form" class="btn btn-light btn-large" id="psp-cta2">
+                    <i class="fas fa-handshake"></i> Partner With Us
+                </a>
             </div>
         </div>
     </section>
@@ -635,169 +1432,290 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-column">
-                    <h3>FinRef</h3>
-                    <p>Specialists in PSP/EMI matchmaking and compliance preparation.</p>
+                <div class="footer-logo">
+                    <a href="#" class="logo"><i class="fas fa-shield-alt logo-icon"></i>FinRef</a>
+                    <p>World's leading PSP/EMI referral service. We connect businesses with trusted payment providers and ensure seamless compliance onboarding.</p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/company/finref/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.facebook.com/people/FinRef/61578274861592/" target="_blank"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/finref.io/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
                     </div>
                 </div>
+                
                 <div class="footer-column">
                     <h3>Services</h3>
                     <ul>
-                        <li><a href="#">For Businesses</a></li>
-                        <li><a href="#">For PSPs/EMIs</a></li>
-                        <li><a href="#">KYC Preparation</a></li>
-                        <li><a href="#">Compliance Review</a></li>
+                        <li><a href="#">PSP/EMI Matching</a></li>
+                        <li><a href="#">Compliance Onboarding</a></li>
+                        <li><a href="#">Payment Optimization</a></li>
+                        <li><a href="#">Risk Assessment</a></li>
+                        <li><a href="#">Multi-Jurisdictional Solutions</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-column">
                     <h3>Company</h3>
                     <ul>
                         <li><a href="#">About Us</a></li>
                         <li><a href="#">Our Process</a></li>
+                        <li><a href="#">Client Stories</a></li>
+                        <li><a href="#">Careers</a></li>
                         <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Payment Regulations</a></li>
+                        <li><a href="#">Industry Reports</a></li>
+                        <li><a href="#">Compliance Guides</a></li>
+                        <li><a href="#">Blog</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-column">
-                    <h3>Legal</h3>
+                    <h3>Contact</h3>
                     <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Compliance</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Payment St, London, UK</li>
+                        <li><i class="fas fa-phone"></i> +44 20 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@finref.com</li>
                     </ul>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>Contact us at: <a href="mailto:support@finref.io" style="color: #aaa;">support@finref.io</a></p>
-                <p>&copy; 2025 FinRef. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                    <a href="#">GDPR Compliance</a>
+                </div>
+                <div>© 2023 FinRef. All rights reserved.</div>
             </div>
         </div>
     </footer>
 
     <!-- Application Forms -->
-    <div class="application-form" id="psp-form">
+    <div class="application-form" id="client-form">
         <div class="form-container">
-            <button class="close-form">&times;</button>
-            <h2 class="form-title">PSP/EMI Provider Application</h2>
-            <form>
+            <button class="close-form" id="close-client-form">&times;</button>
+            <h2 class="form-title">Find Your Payment Provider</h2>
+            <form id="clientRequestForm">
                 <div class="form-group">
-                    <label for="psp-name">Institution Name</label>
-                    <input type="text" id="psp-name" required>
+                    <label for="client-name">Full Name</label>
+                    <input type="text" id="client-name" name="name" required>
                 </div>
+                
                 <div class="form-group">
-                    <label for="psp-license">License Type</label>
-                    <select id="psp-license" required>
-                        <option value="">Select license type</option>
-                        <option value="emi">EMI License</option>
-                        <option value="psp">PSP License</option>
-                        <option value="both">Both</option>
+                    <label for="client-email">Business Email</label>
+                    <input type="email" id="client-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="client-company">Company Name</label>
+                    <input type="text" id="client-company" name="company" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="client-phone">Phone Number</label>
+                    <input type="tel" id="client-phone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="client-business">Business Type</label>
+                    <select id="client-business" name="business_type" required>
+                        <option value="">Select your business type</option>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="saas">SaaS</option>
+                        <option value="gambling">Online Gambling</option>
+                        <option value="forex">Forex/CFD</option>
+                        <option value="crypto">Cryptocurrency</option>
+                        <option value="travel">Travel</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
+                
                 <div class="form-group">
-                    <label for="psp-jurisdictions">Licensed Jurisdictions</label>
-                    <input type="text" id="psp-jurisdictions" placeholder="Countries where you're licensed" required>
+                    <label for="client-volume">Monthly Processing Volume (USD)</label>
+                    <select id="client-volume" name="processing_volume" required>
+                        <option value="">Select volume range</option>
+                        <option value="0-50k">$0 - $50,000</option>
+                        <option value="50k-500k">$50,000 - $500,000</option>
+                        <option value="500k-2m">$500,000 - $2M</option>
+                        <option value="2m-10m">$2M - $10M</option>
+                        <option value="10m+">$10M+</option>
+                    </select>
                 </div>
+                
                 <div class="form-group">
-                    <label for="psp-requirements">Client Requirements</label>
-                    <textarea id="psp-requirements" placeholder="Describe your ideal client profile and requirements"></textarea>
+                    <label for="client-countries">Target Countries</label>
+                    <input type="text" id="client-countries" name="target_countries" placeholder="List countries separated by commas" required>
                 </div>
-                <button type="submit" class="submit-btn">Submit Application</button>
+                
+                <div class="form-group">
+                    <label for="client-requirements">Special Requirements</label>
+                    <textarea id="client-requirements" name="requirements" placeholder="Describe any specific payment methods, currencies, or other needs"></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Submit Request</button>
             </form>
         </div>
     </div>
 
-    <div class="application-form" id="client-form">
+    <div class="application-form" id="psp-form">
         <div class="form-container">
-            <button class="close-form">&times;</button>
-            <h2 class="form-title">Business Application</h2>
-            <form>
+            <button class="close-form" id="close-psp-form">&times;</button>
+            <h2 class="form-title">Partner With FinRef</h2>
+            <form id="pspRequestForm">
                 <div class="form-group">
-                    <label for="client-name">Business Name</label>
-                    <input type="text" id="client-name" required>
+                    <label for="psp-name">Contact Name</label>
+                    <input type="text" id="psp-name" name="name" required>
                 </div>
+                
                 <div class="form-group">
-                    <label for="client-industry">Industry</label>
-                    <input type="text" id="client-industry" required>
+                    <label for="psp-email">Business Email</label>
+                    <input type="email" id="psp-email" name="email" required>
                 </div>
+                
                 <div class="form-group">
-                    <label for="client-countries">Operating Countries</label>
-                    <input type="text" id="client-countries" placeholder="Countries where you need payment services" required>
+                    <label for="psp-company">Company Name</label>
+                    <input type="text" id="psp-company" name="company" required>
                 </div>
+                
                 <div class="form-group">
-                    <label for="client-needs">Specific Needs</label>
-                    <textarea id="client-needs" placeholder="Describe your payment needs and requirements"></textarea>
+                    <label for="psp-phone">Phone Number</label>
+                    <input type="tel" id="psp-phone" name="phone" required>
                 </div>
+                
+                <div class="form-group">
+                    <label for="psp-type">Institution Type</label>
+                    <select id="psp-type" name="institution_type" required>
+                        <option value="">Select your institution type</option>
+                        <option value="psp">Payment Service Provider (PSP)</option>
+                        <option value="emi">Electronic Money Institution (EMI)</option>
+                        <option value="acquiring_bank">Acquiring Bank</option>
+                        <option value="payment_gateway">Payment Gateway</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="psp-license">Licenses Held</label>
+                    <input type="text" id="psp-license" name="licenses" placeholder="List licenses and jurisdictions" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="psp-specialties">Business Specialties</label>
+                    <select id="psp-specialties" name="specialties" multiple required>
+                        <option value="ecommerce">E-commerce</option>
+                        <option value="saas">SaaS</option>
+                        <option value="gambling">Online Gambling</option>
+                        <option value="forex">Forex/CFD</option>
+                        <option value="crypto">Cryptocurrency</option>
+                        <option value="travel">Travel</option>
+                        <option value="high_risk">High Risk</option>
+                        <option value="low_risk">Low Risk</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="psp-countries">Covered Countries</label>
+                    <input type="text" id="psp-countries" name="covered_countries" placeholder="List countries you can service" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="psp-capabilities">Special Capabilities</label>
+                    <textarea id="psp-capabilities" name="capabilities" placeholder="Describe any unique payment methods, currencies, or services you offer"></textarea>
+                </div>
+                
                 <button type="submit" class="submit-btn">Submit Application</button>
             </form>
         </div>
     </div>
 
     <script>
-        // Mobile menu toggle
+        // Mobile Menu Toggle
         const menuBtn = document.getElementById('menuBtn');
         const navLinks = document.getElementById('navLinks');
         
         menuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            menuBtn.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
-                : '<i class="fas fa-bars"></i>';
+            menuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
-        // Form toggle functionality
-        const pspButtons = document.querySelectorAll('#psp-cta, #psp-apply, #psp-cta2');
-        const clientButtons = document.querySelectorAll('#client-cta, #client-apply, #client-cta2');
-        const pspForm = document.getElementById('psp-form');
-        const clientForm = document.getElementById('client-form');
-        const closeButtons = document.querySelectorAll('.close-form');
-
-        pspButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                pspForm.style.display = 'flex';
-            });
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
-
-        clientButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
+        
+        // Form Toggles
+        const clientForm = document.getElementById('client-form');
+        const pspForm = document.getElementById('psp-form');
+        const closeClientForm = document.getElementById('close-client-form');
+        const closePspForm = document.getElementById('close-psp-form');
+        
+        // Client form triggers
+        document.querySelectorAll('[href="#client-form"]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 clientForm.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
             });
         });
-
-        closeButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                pspForm.style.display = 'none';
-                clientForm.style.display = 'none';
+        
+        // PSP form triggers
+        document.querySelectorAll('[href="#psp-form"]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                pspForm.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
             });
         });
-
-        // Close form when clicking outside
-        window.addEventListener('click', function(e) {
-            if (e.target === pspForm) {
-                pspForm.style.display = 'none';
-            }
-            if (e.target === clientForm) {
-                clientForm.style.display = 'none';
-            }
+        
+        // Close buttons
+        closeClientForm.addEventListener('click', () => {
+            clientForm.style.display = 'none';
+            document.body.style.overflow = 'auto';
         });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') !== '#' && 
-                    !this.classList.contains('nav-action-btn')) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        
+        closePspForm.addEventListener('click', () => {
+            pspForm.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close when clicking outside form
+        [clientForm, pspForm].forEach(form => {
+            form.addEventListener('click', (e) => {
+                if (e.target === form) {
+                    form.style.display = 'none';
+                    document.body.style.overflow = 'auto';
                 }
             });
+        });
+        
+        // Form Submissions
+        document.getElementById('clientRequestForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would typically send the form data to your server
+            alert('Thank you for your submission! Our team will contact you within 24 hours.');
+            clientForm.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        document.getElementById('pspRequestForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would typically send the form data to your server
+            alert('Thank you for your application! Our partnership team will review your information and be in touch shortly.');
+            pspForm.style.display = 'none';
+            document.body.style.overflow = 'auto';
         });
     </script>
 </body>
