@@ -81,13 +81,13 @@
 
         /* Header */
         header {
-header {
-    background-color: var(--light);
-    position: static;    /* or relative */
-    width: 100%;
-    box-shadow: var(--shadow-sm);
-    transition: all 0.3s ease;
-}       
+            background-color: var(--light);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
 
         header.scrolled {
             box-shadow: var(--shadow-md);
