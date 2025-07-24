@@ -368,6 +368,9 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: #aaa;
             font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         /* Form Styles */
@@ -521,10 +524,6 @@
                     <a href="#contact">Contact</a>
                     <a href="#about">About Us</a>
                     <a href="#clients">Clients</a>
-                    <div class="nav-actions">
-                        <a href="#psp-form" class="nav-action-btn secondary">For PSPs/EMIs</a>
-                        <a href="#client-form" class="nav-action-btn primary">For Clients</a>
-                    </div>
                 </div>
                 <button class="mobile-menu-btn" id="menuBtn">
                     <i class="fas fa-bars"></i>
@@ -673,8 +672,8 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 FinRef. All rights reserved.</p>
                 <p>Contact us at: <a href="mailto:support@finref.io" style="color: #aaa;">support@finref.io</a></p>
+                <p>&copy; 2025 FinRef. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -750,8 +749,8 @@
         });
         
         // Form toggle functionality
-        const pspButtons = document.querySelectorAll('.nav-action-btn.secondary, #psp-cta, #psp-apply, #psp-cta2');
-        const clientButtons = document.querySelectorAll('.nav-action-btn.primary, #client-cta, #client-apply, #client-cta2');
+        const pspButtons = document.querySelectorAll('#psp-cta, #psp-apply, #psp-cta2');
+        const clientButtons = document.querySelectorAll('#client-cta, #client-apply, #client-cta2');
         const pspForm = document.getElementById('psp-form');
         const clientForm = document.getElementById('client-form');
         const closeButtons = document.querySelectorAll('.close-form');
