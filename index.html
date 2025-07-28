@@ -1027,40 +1027,49 @@ display: none;
             }
             
             .nav-links {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: var(--darker);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 30px;
-                z-index: 999;
-                padding: 80px 40px;
+       display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--darker);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        z-index: 999;
+        padding: 80px 40px;
+        transition: all 0.3s ease;
+        transform: translateY(-100%);
+        opacity: 0;
             }
 
             .nav-links a {
-                color: white;
-                font-size: 1.25rem;
+        color: white;
+        font-size: 1.25rem;
+        padding: 10px 0;
             }
 
             .nav-links.active {
-                display: flex;
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
             }
 
             .nav-actions {
-                flex-direction: column;
-                width: 100%;
-                padding: 0 20px;
-                margin-left: 0;
-                margin-top: 30px;
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+        margin-left: 0;
+        margin-top: 30px;
+        gap: 16px;
             }
 
             .mobile-menu-btn {
-                display: block;
+        display: block;
+        position: relative;
+        z-index: 1001;
             }
             
             .hero-buttons,
@@ -1628,13 +1637,14 @@ display: none;
 
     <script>
         // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.getElementById('navLinks');
+const menuBtn = document.getElementById('menuBtn');
+const navLinks = document.getElementById('navLinks');
+const navLinksItems = document.querySelectorAll('.nav-links a');
         
         menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuBtn.innerHTML = navLinks.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+    navLinks.classList.toggle('active');
+    menuBtn.innerHTML = navLinks.classList.contains('active') ? 
+        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
         // Header Scroll Effect
