@@ -1027,49 +1027,40 @@ display: none;
             }
             
             .nav-links {
-       display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        background: var(--darker);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        z-index: 999;
-        padding: 80px 40px;
-        transition: all 0.3s ease;
-        transform: translateY(-100%);
-        opacity: 0;
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: var(--darker);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 30px;
+                z-index: 999;
+                padding: 80px 40px;
             }
 
             .nav-links a {
-        color: white;
-        font-size: 1.25rem;
-        padding: 10px 0;
+                color: white;
+                font-size: 1.25rem;
             }
 
             .nav-links.active {
-        display: flex;
-        transform: translateY(0);
-        opacity: 1;
+                display: flex;
             }
 
             .nav-actions {
-        flex-direction: column;
-        width: 100%;
-        padding: 0 20px;
-        margin-left: 0;
-        margin-top: 30px;
-        gap: 16px;
+                flex-direction: column;
+                width: 100%;
+                padding: 0 20px;
+                margin-left: 0;
+                margin-top: 30px;
             }
 
             .mobile-menu-btn {
-        display: block;
-        position: relative;
-        z-index: 1001;
+                display: block;
             }
             
             .hero-buttons,
@@ -1637,24 +1628,15 @@ display: none;
 
     <script>
         // Mobile Menu Toggle
-const menuBtn = document.getElementById('menuBtn');
-const navLinks = document.getElementById('navLinks');
-const navLinksItems = document.querySelectorAll('.nav-links a');
-
-menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    menuBtn.innerHTML = navLinks.classList.contains('active') ? 
-        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-     });
-        navLinksItems.forEach(link => {
-    link.addEventListener('click', (e) => {
-        // Close mobile menu when a link is clicked
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-
-
-}
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuBtn.innerHTML = navLinks.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+        
         // Header Scroll Effect
         const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
@@ -1673,33 +1655,27 @@ menuBtn.addEventListener('click', () => {
         
         // Client form triggers
         document.querySelectorAll('[href="#client-form"]').forEach(btn => {
-btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        clientForm.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                clientForm.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
         
-        // Close mobile menu if open
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-    });
-});
-
-// PSP form triggers
-document.querySelectorAll('[href="#psp-form"]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        pspForm.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        // PSP form triggers
+        document.querySelectorAll('[href="#psp-form"]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                pspForm.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
         
-        // Close mobile menu if open
-        if (navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-        }
-    });
-});
+        // Close buttons
+        closeClientForm.addEventListener('click', () => {
+            clientForm.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
         
         closePspForm.addEventListener('click', () => {
             pspForm.style.display = 'none';
@@ -1735,4 +1711,5 @@ document.querySelectorAll('[href="#psp-form"]').forEach(btn => {
     </script>
 </body>
 </html>
+
 
