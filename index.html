@@ -3,1420 +3,1040 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FinRef | Global PSP/EMI Matchmaking & Compliance Experts</title>
-    <meta name="description" content="World's leading PSP/EMI referral service. We connect businesses with trusted payment providers and ensure seamless compliance onboarding.">
+    <title>ShopHub - Premium E-commerce Store</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="icon" href="finref_shield_favicon.png" type="image/png" sizes="32x32">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #1A3A8F;
-            --primary-dark: #122862;
-            --primary-light: #2A56D6;
-            --accent: #00C4CC;
-            --accent-dark: #0099A0;
-            --dark: #0A0F2E;
-            --darker: #060917;
-            --light: #FFFFFF;
-            --light-gray: #F8FAFF;
-            --gray: #E2E8F0;
-            --dark-gray: #94A3B8;
-            --success: #10B981;
-            --warning: #F59E0B;
-            --error: #EF4444;
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.15);
-            --border-radius: 12px;
-            --border-radius-lg: 16px;
-        }
-
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #2c3e50;
+            --secondary: #e74c3c;
+            --accent: #3498db;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --gray: #95a5a6;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: #f9f9f9;
+            color: #333;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            line-height: 1.2;
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
         }
 
         .container {
-            width: 100%;
-            max-width: 1280px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 0 20px;
         }
 
-        .section {
-            padding: 120px 0;
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 16px;
-            color: var(--dark);
             text-align: center;
+            margin-bottom: 40px;
+            position: relative;
         }
 
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--dark-gray);
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 60px;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
         }
 
-        /* Header */
+        /* Header Styles */
         header {
-            background-color: var(--light);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s ease;
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        header.scrolled {
-            box-shadow: var(--shadow-md);
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
+        .top-bar {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
         }
 
-        nav {
+        .top-bar-content {
             display: flex;
             justify-content: space-between;
+        }
+
+        .top-bar-links a {
+            margin-left: 15px;
+            transition: var(--transition);
+        }
+
+        .top-bar-links a:hover {
+            color: var(--accent);
+        }
+
+        .main-header {
+            padding: 15px 0;
+        }
+
+        .header-content {
+            display: flex;
             align-items: center;
-            padding: 24px 0;
+            justify-content: space-between;
         }
 
         .logo {
-            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
             font-weight: 700;
-            font-size: 1.75rem;
             color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
-        .logo-icon {
-            color: var(--accent);
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+
+        .search-bar button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 7px 15px;
+            cursor: pointer;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+        }
+
+        .header-action {
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .header-action:hover {
+            color: var(--secondary);
+        }
+
+        .header-action i {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .cart-count {
+            background-color: var(--secondary);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            position: absolute;
+            top: -5px;
+            right: -5px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary);
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
-            align-items: center;
+            justify-content: space-between;
         }
 
-        .nav-links a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9375rem;
-            transition: all 0.3s;
+        .nav-links li {
             position: relative;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-links a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            transition: var(--transition);
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            background-color: rgba(255, 255, 255, 0.1);
         }
 
-        .nav-actions {
-            display: flex;
-            gap: 16px;
-            align-items: center;
-            margin-left: 32px;
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: var(--transition);
+            z-index: 10;
         }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 24px;
-            border-radius: var(--border-radius);
-            font-weight: 600;
-            font-size: 0.9375rem;
-            transition: all 0.3s;
-            text-decoration: none;
-            cursor: pointer;
-            gap: 8px;
-            white-space: nowrap;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: var(--light);
-            box-shadow: 0 4px 15px rgba(26, 58, 143, 0.3);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(26, 58, 143, 0.4);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--primary);
-            border: 1px solid var(--gray);
-        }
-
-        .btn-secondary:hover {
-            background-color: rgba(42, 86, 214, 0.05);
-            border-color: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        .btn-accent {
-            background-color: var(--accent);
+        .dropdown li a {
             color: var(--dark);
-            box-shadow: 0 4px 15px rgba(0, 196, 204, 0.3);
+            padding: 12px 20px;
+            border-bottom: 1px solid #eee;
         }
 
-        .btn-accent:hover {
-            background-color: var(--accent-dark);
-            color: var(--light);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 196, 204, 0.4);
+        .nav-links li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
         }
 
-        .mobile-menu-btn {
+        .mega-menu {
             display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            z-index: 10;
+        }
+
+        .mega-menu-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .mega-menu-col h4 {
+            margin-bottom: 15px;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .mega-menu-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .mega-menu-col ul li a {
             color: var(--dark);
-            cursor: pointer;
-            z-index: 1001;
+            padding: 5px 0;
+            border: none;
+            transition: var(--transition);
+        }
+
+        .mega-menu-col ul li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .has-mega-menu:hover .mega-menu {
+            display: block;
         }
 
         /* Hero Section */
         .hero {
-            padding: 220px 0 160px;
-            background: linear-gradient(135deg, var(--darker) 0%, var(--primary-dark) 100%);
-            color: var(--light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
-            opacity: 0.5;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1607082350899-7e105aa886ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 24px;
-            color: var(--light);
-            line-height: 1.1;
-        }
-
-        .hero h1 span {
-            color: var(--accent);
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: rgba(255, 255, 255, 0.85);
-            max-width: 700px;
-            margin: 0 auto 48px;
-            font-weight: 400;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 80px;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 8px;
-        }
-
-        .stat-label {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.7);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Trust Badges */
-        .trust-badges {
-            background-color: var(--light-gray);
-            padding: 40px 0;
-        }
-
-        .badges-container {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .badge-item {
-            opacity: 0.7;
-            transition: opacity 0.3s;
-            filter: grayscale(30%);
-        }
-
-        .badge-item:hover {
-            opacity: 1;
-            filter: grayscale(0);
-        }
-
-        /* Features Section */
-        .features {
-            background-color: var(--light);
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .feature-card {
-            background: var(--light);
-            border-radius: var(--border-radius-lg);
-            padding: 40px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s;
-            border: 1px solid var(--gray);
-            height: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 24px;
-            font-size: 24px;
-            color: white;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-        }
-
-        .feature-title {
-            font-size: 1.375rem;
-            margin-bottom: 16px;
-            color: var(--dark);
-        }
-
-        .feature-description {
-            color: var(--dark-gray);
-            margin-bottom: 0;
-        }
-
-        /* Application Boxes */
-        .application-boxes {
-            background-color: var(--light-gray);
-        }
-
-        .boxes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .application-box {
-            background: var(--light);
-            border-radius: var(--border-radius-lg);
-            padding: 48px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.3s;
-            border: 1px solid var(--gray);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .application-box::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary), var(--accent));
-        }
-
-        .application-box:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .box-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-
-        .box-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            font-size: 24px;
-            color: white;
-        }
-
-        .psp-icon {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-        }
-
-        .client-icon {
-            background: linear-gradient(135deg, var(--accent-dark) 0%, var(--accent) 100%);
-        }
-
-        .box-title {
-            font-size: 1.75rem;
-            color: var(--dark);
-        }
-
-        .box-description {
-            color: var(--dark-gray);
-            margin-bottom: 30px;
-            line-height: 1.7;
-        }
-
-        .box-features {
-            margin-bottom: 30px;
-        }
-
-        .box-features li {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            color: var(--dark-gray);
-        }
-
-        .box-features li i {
-            color: var(--success);
-            margin-right: 12px;
-            margin-top: 4px;
-            font-size: 1.1rem;
-        }
-
-        /* Process Section */
-        .process {
-            background-color: var(--light);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .process::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNiw1OCwxNDMsMC4wMykiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=');
-            opacity: 0.3;
-        }
-
-        .steps {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 50px;
-            flex-wrap: wrap;
-            gap: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .step {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-            padding: 40px 30px;
-            background: var(--light);
-            border-radius: var(--border-radius-lg);
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--gray);
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .step:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary-light);
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.5rem;
-            margin: 0 auto 24px;
-            box-shadow: 0 5px 15px rgba(26, 58, 143, 0.3);
-        }
-
-        .step-title {
-            font-size: 1.25rem;
-            margin-bottom: 16px;
-            color: var(--dark);
-        }
-
-        .step p {
-            color: var(--dark-gray);
-            font-size: 0.9375rem;
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background-color: var(--darker);
-            color: var(--light);
-        }
-
-        .testimonials .section-title,
-        .testimonials .section-subtitle {
-            color: var(--light);
-        }
-
-        .testimonials .section-subtitle {
-            opacity: 0.8;
-        }
-
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: var(--border-radius-lg);
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: var(--accent);
-        }
-
-        .testimonial-content {
-            font-style: italic;
-            margin-bottom: 24px;
-            color: rgba(255, 255, 255, 0.9);
-            position: relative;
-        }
-
-        .testimonial-content::before {
-            content: '"';
-            position: absolute;
-            top: -20px;
-            left: -10px;
-            font-size: 4rem;
-            color: rgba(255, 255, 255, 0.1);
-            font-family: serif;
-            line-height: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--accent);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--dark);
-            font-weight: 700;
-            font-size: 1.25rem;
-        }
-
-        .author-info h4 {
-            font-size: 1.125rem;
-            margin-bottom: 4px;
-            color: var(--light);
-        }
-
-        .author-info p {
-            font-size: 0.875rem;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
-            color: white;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
-            opacity: 0.3;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .cta-section h2 {
-            font-size: 2.5rem;
+        .hero h1 {
+            font-size: 3rem;
             margin-bottom: 20px;
         }
 
-        .cta-section p {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
-            font-size: 1.125rem;
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
+        /* Categories Section */
+        .categories {
+            padding: 80px 0;
         }
 
-        /* About Section */
-        .about {
-            background-color: var(--light-gray);
-        }
-
-        .about-content {
+        .categories-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-top: 60px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
         }
 
-        .about-image {
-            position: relative;
-            border-radius: var(--border-radius-lg);
+        .category-card {
+            background-color: white;
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
         }
 
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .category-card:hover {
+            transform: translateY(-10px);
         }
 
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        .category-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .category-img img {
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, rgba(26, 58, 143, 0.1), rgba(0, 196, 204, 0.2));
+            object-fit: cover;
+            transition: var(--transition);
         }
 
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 24px;
-            color: var(--dark);
+        .category-card:hover .category-img img {
+            transform: scale(1.1);
         }
 
-        .about-text p {
-            color: var(--dark-gray);
-            margin-bottom: 20px;
+        .category-content {
+            padding: 20px;
+            text-align: center;
         }
 
-        .about-features {
-            margin-top: 30px;
+        .category-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
         }
 
-        .about-feature {
+        /* Featured Products */
+        .featured-products {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
             display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 20px;
+            flex-direction: column;
+            opacity: 0;
+            transition: var(--transition);
         }
 
-        .about-feature i {
-            color: var(--accent);
-            font-size: 1.5rem;
-            margin-top: 4px;
+        .product-card:hover .product-actions {
+            opacity: 1;
         }
 
-        .about-feature h4 {
-            font-size: 1.125rem;
-            margin-bottom: 8px;
+        .product-action {
+            width: 35px;
+            height: 35px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .product-action:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .product-content {
+            padding: 20px;
+        }
+
+        .product-category {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 10px;
             color: var(--dark);
         }
 
-        .about-feature p {
-            margin-bottom: 0;
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            margin-left: 10px;
+        }
+
+        .product-rating {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+
+        /* Brands Section */
+        .brands {
+            padding: 60px 0;
+        }
+
+        .brands-slider {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo {
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        .brand-logo:hover {
+            opacity: 1;
+        }
+
+        .brand-logo img {
+            max-height: 60px;
+            filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .brand-logo:hover img {
+            filter: grayscale(0);
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--primary);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .newsletter-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            margin-bottom: 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background-color: #c0392b;
         }
 
         /* Footer */
         footer {
-            background-color: var(--darker);
-            color: white;
-            padding: 100px 0 40px;
-            position: relative;
+            background-color: #1a1a1a;
+            color: #bbb;
+            padding: 60px 0 0;
         }
 
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 60px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
         }
 
-        .footer-column h3 {
-            font-size: 1.125rem;
-            margin-bottom: 24px;
+        .footer-col h3 {
             color: white;
-            font-family: 'Space Grotesk', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
         }
 
-        .footer-column ul {
-            list-style: none;
+        .footer-col ul li {
+            margin-bottom: 10px;
         }
 
-        .footer-column ul li {
-            margin-bottom: 12px;
+        .footer-col ul li a {
+            transition: var(--transition);
         }
 
-        .footer-column ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: all 0.3s;
-            font-size: 0.9375rem;
-        }
-
-        .footer-column ul li a:hover {
-            color: var(--accent);
-            padding-left: 4px;
-        }
-
-        .footer-logo {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .footer-logo .logo {
-            font-size: 1.5rem;
-        }
-
-        .footer-logo p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9375rem;
-            line-height: 1.6;
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
         }
 
         .social-links {
             display: flex;
-            gap: 16px;
+            margin-top: 20px;
         }
 
         .social-links a {
+            width: 36px;
+            height: 36px;
+            background-color: #333;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1rem;
-            transition: all 0.3s;
+            margin-right: 10px;
+            transition: var(--transition);
         }
 
         .social-links a:hover {
-            background-color: var(--accent);
-            color: var(--dark);
+            background-color: var(--secondary);
             transform: translateY(-3px);
         }
 
         .footer-bottom {
+            border-top: 1px solid #333;
+            padding: 20px 0;
             text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.875rem;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
         }
 
-        .footer-links {
+        .payment-methods {
             display: flex;
             justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
+            margin-top: 20px;
         }
 
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        /* Form Styles */
-        .application-form {
-display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(10, 15, 46, 0.9);
-    z-index: 1000;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(5px);
-    padding: 20px;
-    overflow-y: auto; /* New line added */
-        }
-
-        .form-container {
-    background: var(--light);
-    border-radius: var(--border-radius-lg);
-    padding: 60px;
-    width: 100%;
-    max-width: 700px;
-    max-height: 90vh; /* New line added */
-    overflow-y: auto; /* New line added */
-    position: relative;
-    box-shadow: var(--shadow-xl);
-    animation: fadeInUp 0.4s ease;
-   }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .close-form {
-    position: sticky;
-    top: 10px;
-    right: 10px;
-    background: rgba(255, 255, 255, 0.9);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    font-size: 28px;
-    cursor: pointer;
-    color: var(--dark-gray);
-    transition: all 0.3s;
-    margin-left: auto;
-    z-index: 1;
-    box-shadow: var(--shadow-sm);
-        }
-
-        .close-form:hover {
-            color: var(--dark);
-        }
-
-        .form-title {
+        .payment-methods i {
             font-size: 2rem;
-            margin-bottom: 30px;
-            color: var(--dark);
-            text-align: center;
+            margin: 0 10px;
+            color: #666;
         }
 
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 0.9375rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid var(--gray);
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            transition: all 0.3s;
-            background-color: var(--light);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(26, 58, 143, 0.1);
-        }
-
-        .form-group textarea {
-            min-height: 140px;
-            resize: vertical;
-        }
-
-        .submit-btn {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            color: var(--light);
-            border: none;
-            border-radius: var(--border-radius);
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 16px;
-            box-shadow: 0 4px 15px rgba(26, 58, 143, 0.3);
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(26, 58, 143, 0.4);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1024px) {
-            .section {
-                padding: 100px 0;
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .categories-grid,
+            .products-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
             
-            .about-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
             }
             
-            .about-image {
-                max-width: 600px;
-                margin: 0 auto;
+            .mega-menu-content {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .section {
-                padding: 80px 0;
+            .header-content {
+                flex-direction: column;
             }
             
-            .section-title {
-                font-size: 2rem;
+            .search-bar {
+                max-width: 100%;
+                margin: 15px 0;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.125rem;
+            .categories-grid,
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .nav-links {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: var(--darker);
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                gap: 30px;
-                z-index: 999;
-                padding: 80px 40px;
-            }
-
-            .nav-links a {
-                color: white;
-                font-size: 1.25rem;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-actions {
-                flex-direction: column;
-                width: 100%;
-                padding: 0 20px;
-                margin-left: 0;
-                margin-top: 30px;
-            }
-
-            .mobile-menu-btn {
-                display: block;
             }
             
-            .hero-buttons,
-            .cta-buttons {
-                flex-direction: column;
-                gap: 16px;
-            }
-            
-            .boxes-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-container {
-                padding: 40px 30px;
+            .mega-menu-content {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 20px;
+        @media (max-width: 576px) {
+            .categories-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
             }
             
-            .section {
-                padding: 60px 0;
+            .footer-content {
+                grid-template-columns: 1fr;
             }
             
-            .section-title {
-                font-size: 1.75rem;
+            .mega-menu-content {
+                grid-template-columns: 1fr;
             }
             
-            .hero h1 {
-                font-size: 2rem;
+            .newsletter-form {
+                flex-direction: column;
             }
             
-            .application-box,
-            .feature-card {
-                padding: 30px;
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 10px;
             }
             
-            .form-container {
-                padding: 30px 20px;
+            .newsletter-form button {
+                border-radius: 4px;
+                padding: 15px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="top-bar-links">
+                <a href="#"><i class="fas fa-phone"></i> +1 234 567 890</a>
+                <a href="#"><i class="fas fa-envelope"></i> support@shophub.com</a>
+            </div>
+            <div class="top-bar-links">
+                <a href="#">About Us</a>
+                <a href="#">My Account</a>
+                <a href="#">Wishlist</a>
+                <a href="#">Order Tracking</a>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
-    <header id="header">
-        <div class="container">
-            <nav>
-                <a href="#" class="logo"><i class="fas fa-shield-alt logo-icon"></i>FinRef</a>
-                <div class="nav-links" id="navLinks">
-                    <a href="#services">Services</a>
-                    <a href="#about">About</a>
-                    <a href="#process">Process</a>
-                    <a href="#testimonials">Clients</a>
-                    <a href="#contact">Contact</a>
-                    <div class="nav-actions">
-                        <a href="#psp-form" class="btn btn-secondary" id="psp-nav-btn">For Providers</a>
-                        <a href="#client-form" class="btn btn-primary" id="client-nav-btn">For Businesses</a>
+    <header>
+        <div class="container main-header">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#">Shop<span>Hub</span></a>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for products...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="header-actions">
+                    <div class="header-action">
+                        <i class="fas fa-user"></i>
+                        <span>Account</span>
+                    </div>
+                    <div class="header-action">
+                        <i class="fas fa-heart"></i>
+                        <span>Wishlist</span>
+                    </div>
+                    <div class="header-action" style="position: relative;">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Cart</span>
+                        <div class="cart-count">3</div>
                     </div>
                 </div>
-                <button class="mobile-menu-btn" id="menuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </nav>
+            </div>
         </div>
+        
+        <!-- Navigation -->
+        <nav>
+            <div class="container">
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li class="has-mega-menu">
+                        <a href="#">Categories <i class="fas fa-chevron-down"></i></a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-col">
+                                    <h4>Electronics</h4>
+                                    <ul>
+                                        <li><a href="#">Smartphones</a></li>
+                                        <li><a href="#">Laptops</a></li>
+                                        <li><a href="#">Tablets</a></li>
+                                        <li><a href="#">Cameras</a></li>
+                                        <li><a href="#">Headphones</a></li>
+                                        <li><a href="#">Smart Watches</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h4>Fashion</h4>
+                                    <ul>
+                                        <li><a href="#">Men's Clothing</a></li>
+                                        <li><a href="#">Women's Clothing</a></li>
+                                        <li><a href="#">Shoes</a></li>
+                                        <li><a href="#">Bags & Accessories</a></li>
+                                        <li><a href="#">Jewelry</a></li>
+                                        <li><a href="#">Watches</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h4>Home & Garden</h4>
+                                    <ul>
+                                        <li><a href="#">Furniture</a></li>
+                                        <li><a href="#">Home Decor</a></li>
+                                        <li><a href="#">Kitchen & Dining</a></li>
+                                        <li><a href="#">Bed & Bath</a></li>
+                                        <li><a href="#">Garden & Outdoor</a></li>
+                                        <li><a href="#">Lighting</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-col">
+                                    <h4>More Categories</h4>
+                                    <ul>
+                                        <li><a href="#">Sports & Outdoors</a></li>
+                                        <li><a href="#">Toys & Games</a></li>
+                                        <li><a href="#">Automotive</a></li>
+                                        <li><a href="#">Beauty & Health</a></li>
+                                        <li><a href="#">Books & Media</a></li>
+                                        <li><a href="#">View All</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="#">Deals</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Brands</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>Global <span>PSP/EMI</span> Matchmaking & Compliance Experts</h1>
-            <p>We connect businesses with trusted payment providers worldwide and streamline the complex compliance onboarding process. Our network spans 150+ PSPs/EMIs across 40+ jurisdictions.</p>
-            <div class="hero-buttons">
-                <a href="#client-form" class="btn btn-accent" id="client-cta">
-                    <i class="fas fa-search"></i> Find My Provider
-                </a>
-                <a href="#psp-form" class="btn btn-primary" id="psp-cta">
-                    <i class="fas fa-handshake"></i> Partner With Us
-                </a>
-            </div>
-            <div class="hero-stats">
-                <div class="stat-item">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Success Rate</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">150+</div>
-                    <div class="stat-label">PSP/EMI Partners</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">40+</div>
-                    <div class="stat-label">Jurisdictions</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24h</
-                    <div class="stat-label">Avg. Response Time</div>
-                </div>
-            </div>
+        <div class="container hero-content">
+            <h1>Summer Sale Up To 70% Off</h1>
+            <p>Discover the latest trends in fashion, electronics, home goods and more with exclusive discounts</p>
+            <a href="#" class="btn">Shop Now</a>
         </div>
     </section>
 
-    <!-- Trust Badges -->
-
-    <!-- Features Section -->
-    <section class="features section" id="services">
+    <!-- Categories Section -->
+    <section class="categories">
         <div class="container">
-            <h2 class="section-title">Our Value Proposition</h2>
-            <p class="section-subtitle">We simplify the complex world of payment services by connecting businesses with the perfect providers while handling all compliance requirements.</p>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-bullseye"></i>
+            <h2 class="section-title">Shop By Category</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Electronics">
                     </div>
-                    <h3 class="feature-title">Precision Matching</h3>
-                    <p class="feature-description">Our proprietary algorithm matches your business with providers based on 27 criteria including business model, risk profile, geography, and volume.</p>
+                    <div class="category-content">
+                        <h3>Electronics</h3>
+                        <a href="#" class="btn btn-outline">Explore</a>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Fashion">
                     </div>
-                    <h3 class="feature-title">Compliance Expertise</h3>
-                    <p class="feature-description">We navigate complex regulatory landscapes with specialists in AML, KYC, and financial regulations across 40+ jurisdictions.</p>
+                    <div class="category-content">
+                        <h3>Fashion</h3>
+                        <a href="#" class="btn btn-outline">Explore</a>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-clock"></i>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Home & Garden">
                     </div>
-                    <h3 class="feature-title">Time Savings</h3>
-                    <p class="feature-description">Reduce your provider search from months to days with our curated network of pre-vetted payment institutions.</p>
+                    <div class="category-content">
+                        <h3>Home & Garden</h3>
+                        <a href="#" class="btn btn-outline">Explore</a>
+                    </div>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-hand-holding-usd"></i>
+                <div class="category-card">
+                    <div class="category-img">
+                        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Sports">
                     </div>
-                    <h3 class="feature-title">Cost Efficiency</h3>
-                    <p class="feature-description">Our volume-based relationships secure preferential rates you couldn't access independently, saving 15-40% on processing fees.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-globe"></i>
+                    <div class="category-content">
+                        <h3>Sports</h3>
+                        <a href="#" class="btn btn-outline">Explore</a>
                     </div>
-                    <h3 class="feature-title">Global Reach</h3>
-                    <p class="feature-description">Access local payment methods and currencies through our worldwide network of PSPs and EMIs.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3 class="feature-title">Risk Mitigation</h3>
-                    <p class="feature-description">We monitor provider stability and performance, alerting you to potential issues before they impact your operations.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Application Boxes -->
-    <section class="application-boxes section">
+    <!-- Featured Products -->
+    <section class="featured-products">
         <div class="container">
-            <h2 class="section-title">Tailored Solutions</h2>
-            <p class="section-subtitle">Whether you're a payment provider looking for quality clients or a business seeking payment solutions, we have you covered.</p>
-            
-            <div class="boxes-grid">
-                <div class="application-box" id="psp-box">
-                    <div class="box-header">
-                        <div class="box-icon psp-icon">
-                            <i class="fas fa-handshake"></i>
+            <h2 class="section-title">Featured Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Wireless Headphones">
+                        <span class="product-badge">Sale</span>
+                        <div class="product-actions">
+                            <div class="product-action"><i class="fas fa-heart"></i></div>
+                            <div class="product-action"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="product-action"><i class="fas fa-eye"></i></div>
                         </div>
-                        <h3 class="box-title">For Payment Providers</h3>
                     </div>
-                    <p class="box-description">Join our elite network of payment service providers and electronic money institutions to access pre-qualified clients that match your risk appetite and specialization.</p>
-                    <ul class="box-features">
-                        <li><i class="fas fa-check"></i> Access to vetted merchants in your target markets</li>
-                        <li><i class="fas fa-check"></i> Reduced customer acquisition costs</li>
-                        <li><i class="fas fa-check"></i> Compliance pre-screening services</li>
-                        <li><i class="fas fa-check"></i> Volume-based revenue opportunities</li>
-                        <li><i class="fas fa-check"></i> Market intelligence and benchmarking</li>
-                    </ul>
-                    <a href="#psp-form" class="btn btn-primary" id="psp-box-btn">Partner With Us</a>
+                    <div class="product-content">
+                        <div class="product-category">Electronics</div>
+                        <h3 class="product-title">Wireless Bluetooth Headphones</h3>
+                        <div class="product-price">
+                            <span class="current-price">$89.99</span>
+                            <span class="old-price">$129.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="application-box" id="client-box">
-                    <div class="box-header">
-                        <div class="box-icon client-icon">
-                            <i class="fas fa-search"></i>
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Running Shoes">
+                        <span class="product-badge">New</span>
+                        <div class="product-actions">
+                            <div class="product-action"><i class="fas fa-heart"></i></div>
+                            <div class="product-action"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="product-action"><i class="fas fa-eye"></i></div>
                         </div>
-                        <h3 class="box-title">For Businesses</h3>
                     </div>
-                    <p class="box-description">Find the perfect payment provider tailored to your business model, risk profile, and geographic needs without the hassle of endless searches and compliance hurdles.</p>
-                    <ul class="box-features">
-                        <li><i class="fas fa-check"></i> Matched with 3 ideal providers in 72 hours</li>
-                        <li><i class="fas fa-check"></i> Full compliance onboarding support</li>
-                        <li><i class="fas fa-check"></i> Negotiated preferential rates</li>
-                        <li><i class="fas fa-check"></i> Ongoing performance monitoring</li>
-                        <li><i class="fas fa-check"></i> Multi-provider redundancy options</li>
-                    </ul>
-                    <a href="#client-form" class="btn btn-accent" id="client-box-btn">Find My Provider</a>
+                    <div class="product-content">
+                        <div class="product-category">Footwear</div>
+                        <h3 class="product-title">Premium Running Shoes</h3>
+                        <div class="product-price">
+                            <span class="current-price">$129.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Smart Watch">
+                        <div class="product-actions">
+                            <div class="product-action"><i class="fas fa-heart"></i></div>
+                            <div class="product-action"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="product-action"><i class="fas fa-eye"></i></div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Wearables</div>
+                        <h3 class="product-title">Smart Watch Series 5</h3>
+                        <div class="product-price">
+                            <span class="current-price">$199.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="https://images.unsplash.com/photo-1504274066651-8d31a536b11a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Backpack">
+                        <span class="product-badge">-20%</span>
+                        <div class="product-actions">
+                            <div class="product-action"><i class="fas fa-heart"></i></div>
+                            <div class="product-action"><i class="fas fa-shopping-cart"></i></div>
+                            <div class="product-action"><i class="fas fa-eye"></i></div>
+                        </div>
+                    </div>
+                    <div class="product-content">
+                        <div class="product-category">Accessories</div>
+                        <h3 class="product-title">Travel Backpack</h3>
+                        <div class="product-price">
+                            <span class="current-price">$59.99</span>
+                            <span class="old-price">$74.99</span>
+                        </div>
+                        <div class="product-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process section" id="process">
+    <!-- Brands Section -->
+    <section class="brands">
         <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <p class="section-subtitle">Our streamlined process gets you matched with the right payment solutions faster than traditional approaches.</p>
-            
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h4 class="step-title">Needs Assessment</h4>
-                    <p>We analyze your business model, processing volumes, target markets, and risk profile through our detailed questionnaire.</p>
+            <h2 class="section-title">Popular Brands</h2>
+            <div class="brands-slider">
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/2c3e50/ffffff?text=Brand+1" alt="Brand 1">
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h4 class="step-title">Provider Matching</h4>
-                    <p>Our algorithm identifies 3-5 ideal providers from our network based on 27 matching criteria.</p>
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/2c3e50/ffffff?text=Brand+2" alt="Brand 2">
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h4 class="step-title">Compliance Prep</h4>
-                    <p>We prepare all required documentation and ensure your application meets regulatory requirements.</p>
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/2c3e50/ffffff?text=Brand+3" alt="Brand 3">
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h4 class="step-title">Introduction & Negotiation</h4>
-                    <p>We facilitate introductions and negotiate terms on your behalf for optimal pricing and conditions.</p>
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/2c3e50/ffffff?text=Brand+4" alt="Brand 4">
                 </div>
-                
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <h4 class="step-title">Onboarding Support</h4>
-                    <p>Our team guides you through technical integration and remains available for ongoing support.</p>
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/150x60/2c3e50/ffffff?text=Brand+5" alt="Brand 5">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials section" id="testimonials">
-        <div class="container">
-            <h2 class="section-title">Trusted by Industry Leaders</h2>
-            <p class="section-subtitle">Hear from businesses and payment providers who've transformed their operations through our matchmaking platform.</p>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        FinRef matched us with three perfect PSPs for our high-risk e-commerce business when traditional providers kept rejecting us. Their compliance expertise made all the difference in getting approved.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JD</div>
-                        <div class="author-info">
-                            <h4>James Donovan</h4>
-                            <p>CEO, Global Nutra</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        As a new EMI in the European market, FinRef has delivered a steady stream of qualified merchants that match our risk parameters. Their vetting process saves us countless hours in due diligence.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">MK</div>
-                        <div class="author-info">
-                            <h4>Maria Kowalski</h4>
-                            <p>Head of Sales, EuroPay EMI</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        We needed local payment methods in 7 Asian countries. FinRef connected us with regional specialists and negotiated rates 30% better than we could secure ourselves. The entire process took 2 weeks.
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">TL</div>
-                        <div class="author-info">
-                            <h4>Thomas Lee</h4>
-                            <p>COO, TravelTech Asia</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about section" id="about">
-        <div class="container">
-            <h2 class="section-title">About FinRef</h2>
-            <p class="section-subtitle">We're the bridge between innovative businesses and payment providers in the complex world of financial technology.</p>
-            
-            <div class="about-content">
-                <div class="about-image">
-<img src="nyc-building.webp" alt="New York City FinRef Office" style="width:100%; max-width:800px; height:auto; border-radius:12px;">
-                </div>
-                <div class="about-text">
-                    <h3>Global Payment Solutions, Simplified</h3>
-                    <p>Founded in 2018 by payments industry veterans, FinRef was created to solve a fundamental problem: the disconnect between businesses needing payment solutions and providers looking for quality merchants.</p>
-                    <p>With team members from regulatory, banking, and fintech backgrounds, we understand both sides of the equation. Our network now spans 150+ payment providers across 40 jurisdictions, processing over $12B annually.</p>
-                    
-                    <div class="about-features">
-                        <div class="about-feature">
-                            <i class="fas fa-user-shield"></i>
-                            <div>
-                                <h4>Regulatory Expertise</h4>
-                                <p>Our team includes former regulators and compliance officers who understand the nuances of financial licensing worldwide.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="about-feature">
-                            <i class="fas fa-project-diagram"></i>
-                            <div>
-                                <h4>Strategic Partnerships</h4>
-                                <p>We maintain direct relationships with acquiring banks, card networks, and alternative payment methods to create complete solutions.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="about-feature">
-                            <i class="fas fa-chart-line"></i>
-                            <div>
-                                <h4>Data-Driven Matching</h4>
-                                <p>Our proprietary matching algorithm continuously learns from thousands of successful placements to improve recommendations.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section" id="contact">
-        <div class="cta-content">
-            <h2>Ready to Transform Your Payment Strategy?</h2>
-            <p>Whether you're a business seeking payment solutions or a provider looking for quality merchants, our experts are ready to help.</p>
-            <div class="cta-buttons">
-                <a href="#client-form" class="btn btn-accent btn-large" id="client-cta2">
-                    <i class="fas fa-search"></i> Find My Provider
-                </a>
-                <a href="#psp-form" class="btn btn-light btn-large" id="psp-cta2">
-                    <i class="fas fa-handshake"></i> Partner With Us
-                </a>
-            </div>
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container newsletter-content">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get the latest updates on new products and upcoming sales</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
         </div>
     </section>
 
@@ -1424,292 +1044,89 @@ display: none;
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#" class="logo"><i class="fas fa-shield-alt logo-icon"></i>FinRef</a>
-                    <p>World's leading PSP/EMI referral service. We connect businesses with trusted payment providers and ensure seamless compliance onboarding.</p>
+                <div class="footer-col">
+                    <h3>ShopHub</h3>
+                    <p>Your one-stop destination for all your shopping needs. We offer a wide range of products with competitive prices and excellent customer service.</p>
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/company/finref/?viewAsMember=true" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://www.instagram.com/finref.io/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/people/FinRef/61578274861592/#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
                     </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Services</h3>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#">PSP/EMI Matching</a></li>
-                        <li><a href="#">Compliance Onboarding</a></li>
-                        <li><a href="#">Payment Optimization</a></li>
-                        <li><a href="#">Risk Assessment</a></li>
-                        <li><a href="#">Multi-Jurisdictional Solutions</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Company</h3>
-                    <ul>
+                        <li><a href="#">Home</a></li>
                         <li><a href="#">About Us</a></li>
-                        <li><a href="#">Our Process</a></li>
-                        <li><a href="#">Client Stories</a></li>
-                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Shop</a></li>
+                        <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Resources</h3>
+                <div class="footer-col">
+                    <h3>Customer Service</h3>
                     <ul>
-                        <li><a href="#">Payment Regulations</a></li>
-                        <li><a href="#">Industry Reports</a></li>
-                        <li><a href="#">Compliance Guides</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Contact</h3>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Global Presence</li>
-                        <li><i class="fas fa-envelope"></i> support@finref.io</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, New York, NY 10001</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-envelope"></i> info@shophub.com</li>
                     </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="#">Cookie Policy</a>
-                    <a href="#">GDPR Compliance</a>
+                <p>&copy; 2023 ShopHub. All Rights Reserved.</p>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                    <i class="fab fa-cc-apple-pay"></i>
+                    <i class="fab fa-cc-amazon-pay"></i>
                 </div>
-                <div>© 2025 FinRef. All rights reserved.</div>
             </div>
         </div>
     </footer>
 
-    <!-- Application Forms -->
-    <div class="application-form" id="client-form">
-        <div class="form-container">
-            <button class="close-form" id="close-client-form">&times;</button>
-            <h2 class="form-title">Find Your Payment Provider</h2>
-            <form id="clientRequestForm">
-                <div class="form-group">
-                    <label for="client-name">Full Name</label>
-                    <input type="text" id="client-name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="client-email">Business Email</label>
-                    <input type="email" id="client-email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="client-company">Company Name</label>
-                    <input type="text" id="client-company" name="company" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="client-phone">Phone Number</label>
-                    <input type="tel" id="client-phone" name="phone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="client-business">Business Type</label>
-                    <select id="client-business" name="business_type" required>
-                        <option value="">Select your business type</option>
-                        <option value="ecommerce">E-commerce</option>
-                        <option value="saas">SaaS</option>
-                        <option value="gambling">Online Gambling</option>
-                        <option value="forex">Forex/CFD</option>
-                        <option value="crypto">Cryptocurrency</option>
-                        <option value="travel">Travel</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="client-volume">Monthly Processing Volume (USD)</label>
-                    <select id="client-volume" name="processing_volume" required>
-                        <option value="">Select volume range</option>
-                        <option value="0-50k">$0 - $50,000</option>
-                        <option value="50k-500k">$50,000 - $500,000</option>
-                        <option value="500k-2m">$500,000 - $2M</option>
-                        <option value="2m-10m">$2M - $10M</option>
-                        <option value="10m+">$10M+</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="client-countries">Target Countries</label>
-                    <input type="text" id="client-countries" name="target_countries" placeholder="List countries separated by commas" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="client-requirements">Special Requirements</label>
-                    <textarea id="client-requirements" name="requirements" placeholder="Describe any specific payment methods, currencies, or other needs"></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Submit Request</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="application-form" id="psp-form">
-        <div class="form-container">
-            <button class="close-form" id="close-psp-form">&times;</button>
-            <h2 class="form-title">Partner With FinRef</h2>
-            <form id="pspRequestForm">
-                <div class="form-group">
-                    <label for="psp-name">Contact Name</label>
-                    <input type="text" id="psp-name" name="name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="psp-email">Business Email</label>
-                    <input type="email" id="psp-email" name="email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="psp-company">Company Name</label>
-                    <input type="text" id="psp-company" name="company" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="psp-phone">Phone Number</label>
-                    <input type="tel" id="psp-phone" name="phone" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="psp-type">Institution Type</label>
-                    <select id="psp-type" name="institution_type" required>
-                        <option value="">Select your institution type</option>
-                        <option value="psp">Payment Service Provider (PSP)</option>
-                        <option value="emi">Electronic Money Institution (EMI)</option>
-                        <option value="acquiring_bank">Acquiring Bank</option>
-                        <option value="payment_gateway">Payment Gateway</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="psp-license">Licenses Held</label>
-                    <input type="text" id="psp-license" name="licenses" placeholder="List licenses and jurisdictions" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="psp-specialties">Business Specialties</label>
-                    <select id="psp-specialties" name="specialties" multiple required>
-                        <option value="ecommerce">E-commerce</option>
-                        <option value="saas">SaaS</option>
-                        <option value="gambling">Online Gambling</option>
-                        <option value="forex">Forex/CFD</option>
-                        <option value="crypto">Cryptocurrency</option>
-                        <option value="travel">Travel</option>
-                        <option value="high_risk">High Risk</option>
-                        <option value="low_risk">Low Risk</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="psp-countries">Covered Countries</label>
-                    <input type="text" id="psp-countries" name="covered_countries" placeholder="List countries you can service" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="psp-capabilities">Special Capabilities</label>
-                    <textarea id="psp-capabilities" name="capabilities" placeholder="Describe any unique payment methods, currencies, or services you offer"></textarea>
-                </div>
-                
-                <button type="submit" class="submit-btn">Submit Application</button>
-            </form>
-        </div>
-    </div>
-
     <script>
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menuBtn');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            menuBtn.innerHTML = navLinks.classList.contains('active') ? 
-                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
-        });
-        
-        // Header Scroll Effect
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Form Toggles
-        const clientForm = document.getElementById('client-form');
-        const pspForm = document.getElementById('psp-form');
-        const closeClientForm = document.getElementById('close-client-form');
-        const closePspForm = document.getElementById('close-psp-form');
-        
-        // Client form triggers
-        document.querySelectorAll('[href="#client-form"]').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                clientForm.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+        // Simple script for cart count update (for demonstration)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add to cart functionality
+            const addToCartButtons = document.querySelectorAll('.product-action:nth-child(2)');
+            const cartCount = document.querySelector('.cart-count');
+            
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    let count = parseInt(cartCount.textContent);
+                    count++;
+                    cartCount.textContent = count;
+                    
+                    // Show a simple notification
+                    alert('Product added to cart!');
+                });
             });
-        });
-        
-        // PSP form triggers
-        document.querySelectorAll('[href="#psp-form"]').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                e.preventDefault();
-                pspForm.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+            
+            // Wishlist functionality
+            const wishlistButtons = document.querySelectorAll('.product-action:nth-child(1)');
+            
+            wishlistButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    alert('Product added to wishlist!');
+                });
             });
-        });
-        
-        // Close buttons
-        closeClientForm.addEventListener('click', () => {
-            clientForm.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        closePspForm.addEventListener('click', () => {
-            pspForm.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Close when clicking outside form
-        [clientForm, pspForm].forEach(form => {
-            form.addEventListener('click', (e) => {
-                if (e.target === form) {
-                    form.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        });
-        
-        // Form Submissions
-        document.getElementById('clientRequestForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Here you would typically send the form data to your server
-            alert('Thank you for your submission! Our team will contact you within 24 hours.');
-            clientForm.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        document.getElementById('pspRequestForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            // Here you would typically send the form data to your server
-            alert('Thank you for your application! Our partnership team will review your information and be in touch shortly.');
-            pspForm.style.display = 'none';
-            document.body.style.overflow = 'auto';
         });
     </script>
 </body>
 </html>
-
-
